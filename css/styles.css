@@ -78,9 +78,9 @@ body {
     top: 0;
     z-index: 50;
     border-bottom: 1px solid var(--card-border);
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .header-container {
@@ -328,28 +328,45 @@ body {
 .form-select:focus,
 .form-textarea:focus {
     border-color: var(--brand-amber);
-    box-shadow: 0 0 0 1px var(--brand-amber);
+    outline: none;
+    box-shadow: none;
 }
 
-/* Validation Border States */
+/* Validation Border & Focus States */
 .form-input.border-emerald-500,
-.form-select.border-emerald-500 {
+.form-select.border-emerald-500,
+.form-input.border-emerald-500:focus,
+.form-select.border-emerald-500:focus {
     border-color: var(--accent-emerald) !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .form-input.border-red-500,
-.form-select.border-red-500 {
+.form-select.border-red-500,
+.form-input.border-red-500:focus,
+.form-select.border-red-500:focus {
     border-color: var(--accent-red) !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
-.valid-icon {
+.valid-icon,
+.invalid-icon {
     position: absolute;
     right: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--accent-emerald);
     font-size: 0.875rem;
     pointer-events: none;
+}
+
+.valid-icon {
+    color: var(--accent-emerald);
+}
+
+.invalid-icon {
+    color: var(--accent-red);
 }
 
 .error-msg {
@@ -555,4 +572,74 @@ body {
 
 .footer-links a:hover {
     color: var(--brand-amber);
+}
+
+/* Success Card & Countdown Redirect */
+.success-card {
+    text-align: center;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+    color: var(--accent-emerald);
+}
+
+.success-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+}
+
+.success-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    max-width: 28rem;
+    margin: 0 auto;
+}
+
+.redirect-notice {
+    font-size: 0.875rem;
+    color: var(--brand-muted);
+    margin-top: 0.5rem;
+}
+
+.countdown-number {
+    font-weight: 800;
+    color: var(--brand-amber);
+    font-size: 1.125rem;
+}
+
+.redirect-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--text-primary);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 0.125rem;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.redirect-link:hover {
+    background-color: var(--brand-amber);
+    color: #ffffff;
+}
+
+.redirect-link:active {
+    transform: translateY(1px);
 }
