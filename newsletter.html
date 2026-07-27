@@ -199,6 +199,24 @@
                                     placeholder="Song request for upcoming tour or message for Halcyon..."></textarea>
                         </div>
                     </fieldset>
+
+                    <fieldset class="space-y-4 pt-2 border-t">
+                        <label class="flex items-start gap-3 cursor-pointer">
+                            <input type="checkbox" id="terms" name="terms" required class="form-checkbox h-4 w-4 mt-0.5 rounded">
+                            <span class="text-xs leading-snug">
+                                I agree to receive email dispatches from Halcyon. I understand I can unsubscribe anytime. <span class="text-red-400">*</span>
+                            </span>
+                        </label>
+                        <p id="termsError" class="error-msg hidden text-xs text-red-400 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-xmark"></i> You must accept the terms to join.
+                        </p>
+                        <!-- Add hover colour when theme decided -->
+                        <button type="submit" id="submitBtn" 
+                            class="w-full py-4 px-6 rounded-sm font-heading font-black text-base uppercase tracking-widest transition-colors flex items-center justify-center gap-3 shadow-lg">
+                            <span>JOIN HALCYON NEWSLETTER</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </fieldset>
                 </form>
             </div>
         </div>
