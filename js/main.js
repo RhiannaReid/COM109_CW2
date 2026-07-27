@@ -19,19 +19,22 @@ $(document).ready(function () {
 
     // Helper functions for field states
     function setFieldState($input, isValid, $errorElem, errorText) {
-        const $parent = $input.closest("div");
-        const $validIcon = $parent.find(".valid-icon");
+        const $container = $input.closest(".input-container").length ? $input.closest(".input-container") : $input.closest("div");
+        const $validIcon = $container.find(".valid-icon");
+        const $invalidIcon = $container.find(".invalid-icon");
 
         if (isValid) {
             $input.removeClass("border-red-500").addClass("border-emerald-500");
             $errorElem.addClass("hidden");
 
             if ($validIcon.length) $validIcon.removeClass("hidden");
+            if ($invalidIcon.length) $invalidIcon.addClass("hidden");
         } else {
             $input.removeClass("border-emerald-500").addClass("border-red-500");
             $errorElem.removeClass("hidden");
 
             if ($validIcon.length) $validIcon.addClass("hidden");
+            if ($invalidIcon.length) $invalidIcon.removeClass("hidden");
         }
         return isValid;
     }
@@ -126,6 +129,7 @@ $(document).ready(function () {
 
         if (errors.length > 0) {
             $errorList.empty();
+
             errors.forEach(function (msg) {
                 $errorList.append(`<li>${msg}</li>`);
             });
@@ -137,15 +141,36 @@ $(document).ready(function () {
         } else {
             $errorSummary.addClass("hidden");
 
-            // Show success message
+            const userEmail = $email.val();
+            let secondsLeft = 10;
+
+            // Show success screen with live countdown timer
             $form.html(`
-                <div class="text-center py-12 space-y-4">
-                    <h3 class="font-heading font-black text-2xl uppercase tracking-wider">Welcome to Halcyon!</h3>
-                    <p class="text-sm max-w-md mx-auto">
-                        Thank you for joining our fan newsletter. A confirmation email has been sent to <strong>${$email.val()}</strong>.
+                <div class="success-card">
+                    <h3 class="success-title">Welcome to Halcyon!</h3>
+                    <p class="success-text">
+                        Thank you for joining our fan newsletter. A confirmation email has been sent to <strong class="text-primary">${userEmail}</strong>.
                     </p>
+                    <p class="redirect-notice">
+                        Redirecting to home page in <span id="countdownTimer" class="countdown-number">${secondsLeft}</span> seconds...
+                    </p>
+                    <a href="index.html" class="redirect-link">
+                        <span>Return to Home Now</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             `);
+
+            // 10 second redirect countdown timer
+            const countdownInterval = setInterval(function () {
+                secondsLeft--;
+                $("#countdownTimer").text(secondsLeft);
+
+                if (secondsLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = "index.html";
+                }
+            }, 1000);
         }
     });
 });
