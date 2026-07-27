@@ -27,13 +27,100 @@
             </div>
         </div>
     </header>
-    <main class="flex-1">
-        <!-- Content Here -->
+
+    <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex items-center justify-center">
+        <div class="w-full max-w-4xl">
+            <div class="border p-6 sm:p-8 relative rounded-sm shadow-2xl">
+                <form id="newsletterForm" novalidate class="space-y-6">
+                    <div class="border-b pb-4">
+                        <h2 class="font-heading font-black text-2xl uppercase tracking-wider flex items-center gap-3">
+                            Join Fan Newsletter
+                        </h2>
+                        <p class="text-xs mt-1">
+                            Required fields marked with (*).
+                        </p>
+                    </div>
+                    
+                    <div id="formErrorSummary" class="hidden bg-red-950/90 border-l-4 border-red-500 p-4 text-red-200 text-xs flex items-start gap-3 rounded-sm" role="alert" aria-live="assertive">
+                    <i class="fa-solid fa-circle-exclamation text-red-400 text-lg mt-0.5"></i>
+                        <div>
+                            <p class="font-bold uppercase tracking-wider">Form Validation Errors:</p>
+                            <ul id="errorList" class="list-disc list-inside mt-1 text-red-300 space-y-0.5"></ul>
+                        </div>
+                    </div>
+
+                    <fieldset class="space-y-4">
+                    <legend class="font-heading font-extrabold text-xs uppercase tracking-widest mb-2">
+                        01. Personal Details
+                    </legend>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="fullName" class="block text-[11px] font-bold uppercase tracking-wider mb-1">
+                                Full Name <span class="text-red-400">*</span>
+                            </label>
+                            <div class="relative">
+                                <input type="text" id="fullName" name="fullName" required 
+                                    class="w-full border rounded-sm px-4 py-3 text-sm transition-colors"
+                                    placeholder="e.g. John Doe"
+                                    aria-required="true"
+                                    aria-describedby="fullNameError">
+                                <span class="valid-icon hidden absolute right-3 top-3.5 text-emerald-400 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            </div>
+                            <p id="fullNameError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
+                                <i class="fa-solid fa-circle-xmark"></i> Enter at least 2 characters.
+                            </p>
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-[11px] font-bold uppercase tracking-wider mb-1">
+                                Email Address <span class="text-red-400">*</span>
+                            </label>
+                            <div class="relative">
+                                <input type="email" id="email" name="email" required
+                                    class="w-full rounded-sm px-4 py-3 text-sm transition-colors"
+                                    placeholder="johndoe@example.com"
+                                    aria-required="true"
+                                    aria-describedby="emailError">
+                                <span class="valid-icon hidden absolute right-3 top-3.5 text-emerald-400 text-sm"><i class="fa-solid fa-circle-check"></i></span>
+                            </div>
+                            <p id="emailError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
+                                <i class="fa-solid fa-circle-xmark"></i> Enter a valid email address.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="city" class="block text-[11px] font-bold uppercase tracking-wider mb-1">
+                            Nearest Tour Location <span class="text-red-400">*</span>
+                        </label>
+                            <select id="city" name="city" required
+                                class="w-full border rounded-sm px-4 py-3 text-sm transition-colors"
+                                aria-required="true"
+                                aria-describedby="cityError">
+                                
+                                <option value="" disabled selected>-- Select nearest tour city --</option>
+                                <option value="London">London / South UK</option>
+                                <option value="Manchester">Manchester / North UK</option>
+                                <option value="Glasgow">Glasgow / Scotland</option>
+                                <option value="Dublin">Dublin / Ireland</option>
+                                <option value="Belfast">Belfast / Northern Ireland</option>
+                                <option value="InternationaL">International / Other Location</option>
+                            </select>
+                            <p id="cityError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
+                                <i class="fa-solid fa-circle-xmark"></i> Please select a location for tour routing.
+                            </p>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
     </main>
+
     <footer class="border-t py-8 text-xs mt-auto"> 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>
-                <p class="font-bold text-brand-cream uppercase tracking-widest mb-1">HALCYON OFFICIAL</p>
+                <p class="font-bold uppercase tracking-widest mb-1">HALCYON OFFICIAL</p>
                 <p>&copy; 2026 Halcyon.</p>
             </div>
 
