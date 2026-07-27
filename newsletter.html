@@ -78,7 +78,7 @@
                             </label>
                             <div class="relative">
                                 <input type="email" id="email" name="email" required
-                                    class="w-full rounded-sm px-4 py-3 text-sm transition-colors"
+                                    class="w-full border rounded-sm px-4 py-3 text-sm transition-colors"
                                     placeholder="johndoe@example.com"
                                     aria-required="true"
                                     aria-describedby="emailError">
@@ -94,8 +94,9 @@
                         <label for="city" class="block text-[11px] font-bold uppercase tracking-wider mb-1">
                             Nearest Tour Location <span class="text-red-400">*</span>
                         </label>
+                        <div class="relative">
                             <select id="city" name="city" required
-                                class="w-full border rounded-sm px-4 py-3 text-sm transition-colors"
+                                class="w-full border rounded-sm pl-4 pr-10 py-3 text-sm transition-colors appearance-none cursor-pointer"
                                 aria-required="true"
                                 aria-describedby="cityError">
                                 
@@ -107,9 +108,95 @@
                                 <option value="Belfast">Belfast / Northern Ireland</option>
                                 <option value="InternationaL">International / Other Location</option>
                             </select>
-                            <p id="cityError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
-                                <i class="fa-solid fa-circle-xmark"></i> Please select a location for tour routing.
+                            <svg class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <p id="cityError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
+                            <i class="fa-solid fa-circle-xmark"></i> Please select a location for tour routing.
+                        </p>
+                    </div>
+                    </fieldset>
+
+                    <hr class="border-t my-6">
+
+                    <fieldset class="space-y-4">
+                        <legend class="font-heading font-extrabold text-xs uppercase tracking-widest mb-2">
+                            02. Content & Tour Preferences
+                        </legend>
+
+                        <div>
+                            <label for="favoriteEra" class="block text-[11px] font-bold uppercase tracking-wider mb-1">
+                                Favorite Halcyon Release
+                            </label>
+                            <div class="relative">
+                                <select id="favoriteEra" name="favoriteEra"
+                                    class="w-full border rounded-sm pl-4 pr-10 py-3 text-sm transition-colors appearance-none cursor-pointer">
+                                    
+                                    <option value="New Fan (Just Discovered)">New Fan (Just Discovered)</option>
+                                    <option value="Neon Shadows EP (2024)">Neon Shadows EP (2024)</option>
+                                    <option value="Acoustic Sessions (2025)">Acoustic Sessions (2025)</option>
+                                    <option value="Hyped for Echoes of Autumn (2026)">Hyped for Echoes of Autumn (2026)</option>
+                                </select>
+                                <svg class="w-4 h-4 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="block text-[11px] font-bold uppercase tracking-wider mb-2">
+                                Content Interests <span class="text-red-400">*</span>
+                            </span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 select-none" id="checkboxGroup">
+                                <label class="flex items-center gap-3 p-3 border rounded-sm cursor-pointer transition-colors select-none">
+                                    <input type="checkbox" name="interests" value="Gig Presales" checked class="form-checkbox h-4 w-4 rounded-none">
+                                    <span class="text-xs font-semibold">Tour & Gig Presales</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-sm cursor-pointer transition-colors select-none">
+                                    <input type="checkbox" name="interests" value="Unreleased Demos" checked class="form-checkbox h-4 w-4 rounded-none">
+                                    <span class="text-xs font-semibold">Studio Demos & Audio</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-sm cursor-pointer transition-colors select-none">
+                                    <input type="checkbox" name="interests" value="Merch Drops" class="form-checkbox h-4 w-4 rounded-none">
+                                    <span class="text-xs font-semibold">Merch & Vinyl Drops</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-sm cursor-pointer transition-colors select-none">
+                                    <input type="checkbox" name="interests" value="Studio Vlogs" class="form-checkbox h-4 w-4 rounded-none">
+                                    <span class="text-xs font-semibold">Backstage Vlogs</span>
+                                </label>
+                            </div>
+                            <p id="interestsError" class="error-msg hidden text-xs text-red-400 mt-1 flex items-center gap-1">
+                                <i class="fa-solid fa-circle-xmark"></i> Select at least one content topic.
                             </p>
+                        </div>
+
+                        <div>
+                            <span class="block text-[11px] font-bold uppercase tracking-wider mb-2">
+                                Frequency of Updates <span class="text-red-400">*</span>
+                            </span>
+                            <div class="flex flex-wrap gap-4 select-none">
+                                <label class="flex items-center gap-2 cursor-pointer text-xs select-none">
+                                    <input type="radio" name="frequency" value="Major Updates Only" checked>
+                                    <span>Major News & Tour Announcements</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer text-xs select-none">
+                                    <input type="radio" name="frequency" value="Weekly Insider Digest">
+                                    <span>Weekly Studio Digest</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label for="fanMessage" class="block text-[11px] font-bold uppercase tracking-wider">
+                                    Band Note / Song Request (Optional)
+                                </label>
+                                <span id="charCounter" class="text-xs font-mono">0 / 200</span>
+                            </div>
+                                <textarea id="fanMessage" name="fanMessage" rows="3" maxlength="200"
+                                    class="w-full border rounded-sm px-4 py-2.5 text-sm transition-colors"
+                                    placeholder="Song request for upcoming tour or message for Halcyon..."></textarea>
                         </div>
                     </fieldset>
                 </form>
