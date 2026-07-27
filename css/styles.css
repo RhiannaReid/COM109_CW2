@@ -1,16 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700;800;900&display=swap');
 
 :root {
+    /* Custom Palette */
+    --color-dark-void: #010E0E;
+    --color-slate-card: #202B2C;
+    --color-forest-accent: #3A5C4A;
+    --color-sage-muted: #707767;
+    --color-ocean-blue: #146FA1;
+    --color-ocean-blue-hover: #105A85;
+    --color-amber-gold: #D49A54;
+    --color-amber-gold-hover: #C28741;
+    
+    /* Backgrounds & Containers */
     --brand-bg: #f9fafb;
     --card-bg: #ffffff;
     --card-border: #e5e7eb;
     --input-bg: #ffffff;
     --input-border: #d1d5db;
+
+    /* Text & Accents */
     --text-primary: #111827;
     --text-secondary: #4b5563;
     --brand-muted: #6b7280;
-    --brand-amber: #d49a54;
+    --brand-amber: #D49A54;
     --brand-amber-hover: #be8239;
+    
     --accent-red: #dc2626;
     --accent-red-bg: #fef2f2;
     --accent-red-text: #991b1b;
@@ -50,7 +64,6 @@ body {
     color: var(--brand-amber);
 }
 
-.text-brand-cream,
 .text-primary {
     color: var(--text-primary);
 }
