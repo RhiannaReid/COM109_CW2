@@ -36,6 +36,7 @@ $(document).ready(function () {
             if ($validIcon.length) $validIcon.addClass("hidden");
             if ($invalidIcon.length) $invalidIcon.removeClass("hidden");
         }
+
         return isValid;
     }
 
@@ -102,8 +103,8 @@ $(document).ready(function () {
     $terms.on("change", validateTerms);
 
     // Submit handler
-    $form.on("submit", function (e) {
-        e.preventDefault();
+    $form.on("submit", function (error) {
+        error.preventDefault();
 
         const errors = [];
 
