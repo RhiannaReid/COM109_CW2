@@ -39,6 +39,10 @@
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: var(--brand-bg);
     color: var(--text-primary);
@@ -666,6 +670,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     transition: all 0.2s ease;
+    text-decoration: none;
 }
 
 .cart-toggle-btn:hover {
