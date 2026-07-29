@@ -10,7 +10,7 @@ This project is a website designed to showcase Halcyon, an indie rock/alternativ
 | --- | --- |
 | Rebecca Burke |  |
 | Daniel Major |  |
-| Adam Foster |  |
+| Adam Foster | Newsletter Page |
 | Rhianna Reid |  |
 
 ## Directory Structure
