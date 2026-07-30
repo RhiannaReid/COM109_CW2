@@ -3,6 +3,8 @@ function openSpotify() {
 }
 
 // ------------------------ rhianna ^ --------------------------------------------------------------- adam v -----------------
+
+
 $(document).ready(function () {
     const $form = $("#newsletterForm");
     const $fullName = $("#fullName");
