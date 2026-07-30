@@ -1,3 +1,3 @@
-function openNewTab() {
+function openSpotify() {
     window.open("https://open.spotify.com", "_blank");
 }
