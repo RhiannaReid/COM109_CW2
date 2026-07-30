@@ -1,6 +1,7 @@
 body, html {
     background-color:#707767;
     font-size: 20px;
+    font-family: 'Marcellus', serif;
     color: #ECEBE6;
     text-align: start;
     height: 100%;
@@ -15,6 +16,7 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
+    font-family: 'Marcellus', serif;
 }
 
 .hero-image {
@@ -33,6 +35,7 @@ footer {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ECEBE6;
+  font-family: 'Marcellus', serif;
 }
 
 .top-nav {
@@ -51,6 +54,7 @@ footer {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    font-family: 'Marcellus', serif;
 }
 
 .top-nav a:hover {
@@ -62,3 +66,19 @@ footer {
     background-color: #3A5C4A;
     color: white;
 }
+
+.paragraph {
+    padding-right: 20px;
+    padding-left: 20px;
+    text-align: justify;
+    font-family: 'Marcellus', serif;
+}
+
+/* .parallax {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
+    height: 85%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
