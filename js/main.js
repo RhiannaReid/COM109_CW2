@@ -2,7 +2,7 @@ function openSpotify() {
     window.open("https://open.spotify.com", "_blank");
 }
 
------------------------- rhianna ^ --------------------------------------------------------------- adam v -----------------
+// ------------------------ rhianna ^ --------------------------------------------------------------- adam v -----------------
 $(document).ready(function () {
     const $form = $("#newsletterForm");
     const $fullName = $("#fullName");
