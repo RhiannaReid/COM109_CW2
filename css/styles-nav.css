@@ -5,18 +5,18 @@ footer {
     left: 0;
     bottom: 0;
     width: 100%;
-    font-family: 'Marcellus', serif;
+    font-family: var(--font-marcellus, 'Marcellus', serif);
 }
 
 .top-nav {
     overflow: hidden;
-    background-color: #182825;
+    background-color: var(--nav-bg, #182825);
     position: sticky;
     top: 0;
     z-index: 999;
 }
 
-.top-nav a{
+.top-nav a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -24,15 +24,15 @@ footer {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    font-family: 'Marcellus', serif;
+    font-family: var(--font-marcellus, 'Marcellus', serif);
 }
 
 .top-nav a:hover {
-    background-color: #D49A54;
+    background-color: var(--accent-gold, #D49A54);
     color: black;
 }
 
 .top-nav a.active {
-    background-color: #3A5C4A;
+    background-color: var(--nav-active, #3A5C4A);
     color: white;
 }

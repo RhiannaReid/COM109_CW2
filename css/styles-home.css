@@ -1,74 +1,13 @@
 body, html {
-    background-color:#707767;
     font-size: 20px;
-    font-family: 'Marcellus', serif;
-    color: #ECEBE6;
-    text-align: start;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-.hero-image {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
-    height: 85%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #ECEBE6;
-  font-family: 'Marcellus', serif;
 }
 
 .paragraph {
     padding-right: 20px;
     padding-left: 20px;
     text-align: justify;
-    font-family: 'Marcellus', serif;
+    font-family: var(--font-marcellus);
     max-width: 900px;
     margin: auto;
     padding: 80px 30px;
 }
-
-.button {
-  background-color: #D49A54;
-  border: none;
-  color: black;
-  font-family: 'Marcellus', serif;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 50%;
-  cursor: pointer;
-  border-radius: 16px;
-  height: 50px;
-  width: 200px;
-  font-size: 20px;
-  display: block;
-}
-
-.button:hover {
-    background-color: #146FA1;
-    color: black;
-}
-
-/* .parallax {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
-    height: 85%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
