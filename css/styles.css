@@ -85,6 +85,11 @@ a {
     color: #ffffff;
 }
 
+.top-nav a.cart-icon {
+    float: right;
+    font-size: 18px;
+}
+
 /* Shared Hero Banner */
 
 .hero-image {

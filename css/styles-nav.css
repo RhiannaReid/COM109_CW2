@@ -36,3 +36,8 @@ footer {
     background-color: var(--nav-active, #3A5C4A);
     color: white;
 }
+
+.top-nav a.cart-icon {
+    float: right;
+    font-size: 18px;
+}

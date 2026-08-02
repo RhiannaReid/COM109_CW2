@@ -11,3 +11,8 @@ body, html {
     margin: auto;
     padding: 80px 30px;
 }
+
+.welcome-heading {
+    text-align: center;
+    padding-top: 40px;
+}
