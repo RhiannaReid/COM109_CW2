@@ -1,3 +1,13 @@
+footer {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Marcellus', serif;
+}
+
 .top-nav {
     overflow: hidden;
     background-color: #182825;
