@@ -1,0 +1,350 @@
+/* Hero Text Position Override for Newsletter Page */
+.hero-text {
+    top: 15%;
+}
+
+/* Overlapping Main Content Form */
+.main-content {
+    max-width: 900px;
+    margin: -480px auto 0 auto;
+    padding: 0 1.5rem 4rem 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.form-wrapper {
+    width: 100%;
+}
+
+/* Form Card & Header */
+
+.form-card {
+    background-color: var(--card-cream);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    color: var(--text-dark);
+    padding: 2.5rem;
+}
+
+.form-header {
+    border-bottom: 1px solid var(--divider-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.form-title {
+    font-family: var(--font-marcellus);
+    color: var(--text-dark);
+    font-size: 1.8rem;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.5rem 0;
+}
+
+.form-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.form-fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.form-legend {
+    font-family: var(--font-marcellus);
+    color: var(--accent-forest);
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+}
+
+.section-divider {
+    border: 0;
+    border-top: 1px solid var(--divider-color);
+    opacity: 0.6;
+    margin: 2rem 0;
+}
+
+/* Form Grid & Input Controls */
+
+.form-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .form-grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    font-family: var(--font-marcellus);
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-dark);
+    font-family: var(--font-marcellus);
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.select-arrow {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    pointer-events: none;
+    color: var(--text-dark);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--input-border-focus);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(58, 92, 74, 0.2);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--placeholder-color);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+.textarea-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-counter {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Validation Icons & Error Summary */
+
+.valid-icon,
+.invalid-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+}
+
+.valid-icon {
+    color: var(--valid-green);
+}
+
+.invalid-icon {
+    color: var(--error-red);
+}
+
+.error-msg {
+    color: var(--error-red);
+    font-size: 0.875rem;
+    margin-top: 0.35rem;
+}
+
+.error-summary {
+    background-color: var(--error-bg);
+    border-left: 4px solid var(--error-red);
+    color: var(--error-text);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.error-summary-icon {
+    font-size: 1.25rem;
+    margin-top: 0.15rem;
+}
+
+.error-summary-title {
+    font-family: var(--font-marcellus);
+    font-weight: bold;
+    margin: 0 0 0.25rem 0;
+}
+
+.error-list {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+/* Checkboxes, Radio Groups & Terms */
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+    .checkbox-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.checkbox-card,
+.radio-label {
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-dark);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.2s ease;
+    font-family: var(--font-marcellus);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-card:hover,
+.radio-label:hover {
+    border-color: var(--input-border-focus);
+    background-color: #f4f3ef;
+}
+
+.custom-checkbox,
+.custom-radio {
+    accent-color: var(--accent-forest);
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+.terms-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-family: var(--font-marcellus);
+    color: var(--text-dark);
+    margin-top: 1rem;
+}
+
+/* Submit Button */
+
+.submit-btn {
+    background-color: var(--accent-gold);
+    color: #000000;
+    font-family: var(--font-marcellus);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+/* Success Screen */
+
+.success-card {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.success-title {
+    color: var(--accent-forest);
+    font-family: var(--font-marcellus);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.success-text {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.countdown-number {
+    font-weight: bold;
+    color: var(--accent-forest);
+}
+
+.redirect-notice {
+    color: var(--text-muted);
+    margin-top: 1rem;
+}
+
+.redirect-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+    background-color: var(--accent-gold);
+    color: #000000;
+    padding: 10px 24px;
+    border-radius: 16px;
+    font-family: var(--font-marcellus);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.redirect-link:hover {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}

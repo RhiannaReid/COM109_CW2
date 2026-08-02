@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter - HALCYON</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Newsletter - Halcyon</title>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
-    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles-nav.css">
+    <link rel="stylesheet" type="text/css" href="css/styles-newsletter.css">
+
+    <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
 </head>
+
 <body>
-    <header class="site-header select-none">
-        <div class="header-container">
-            <div class="header-content">
-                <a href="index.html" class="site-logo">HALCYON</a>
+    <div class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About Us</a>
+        <a href="store.html">Store</a>
+        <a class="active" href="newsletter.html">Newsletter</a>
+        <a href="contact.html">Contact</a>
+    </div>
 
-                <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Gigs & Tours</a>
-                    <a href="store.html" class="nav-link">Store</a>
-                    <a href="#" class="nav-link" aria-current="page">Newsletter</a>
-                    <a href="#" class="nav-link">Contact</a>
-                </nav>
-
-                <div class="header-actions">
-                    <a href="store.html" class="cart-toggle-btn" aria-label="View Cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>Cart</span>
-                        <span id="cartBadge" class="cart-badge">0</span>
-                    </a>
-                </div>
-            </div>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 8vw;"> Halcyon </h1>
         </div>
-    </header>
+    </div>
 
     <main class="main-content">
         <div class="form-wrapper">
             <div class="form-card">
                 <form id="newsletterForm" novalidate class="newsletter-form">
                     <div class="form-header">
-                        <h2 class="form-title">
-                            Join Fan Newsletter
-                        </h2>
-                        <p class="form-subtitle">
-                            Required fields marked with (<span class="text-required">*</span>).
-                        </p>
+                        <h2 class="form-title">Join Fan Newsletter</h2>
+                        <p class="form-subtitle">Required fields marked with (<span class="text-required">*</span>).</p>
                     </div>
-                    
+
                     <div id="formErrorSummary" class="error-summary hidden" role="alert" aria-live="assertive">
                         <i class="fa-solid fa-circle-exclamation error-summary-icon"></i>
                         <div>
@@ -58,68 +52,53 @@
                     </div>
 
                     <fieldset class="form-fieldset">
-                        <legend class="form-legend">
-                            01. Personal Details
-                        </legend>
+                        <legend class="form-legend">01. Personal Details</legend>
 
                         <div class="form-grid-2">
                             <div class="form-group">
-                                <label for="fullName" class="form-label">
-                                    Full Name <span class="text-required">*</span>
-                                </label>
+                                <label for="fullName" class="form-label">Full Name <span
+                                        class="text-required">*</span></label>
                                 <div class="input-container">
-                                    <input type="text" id="fullName" name="fullName" required 
-                                        class="form-input"
-                                        placeholder="e.g. John Doe"
-                                        aria-required="true"
+                                    <input type="text" id="fullName" name="fullName" required class="form-input"
+                                        placeholder="e.g. John Doe" aria-required="true"
                                         aria-describedby="fullNameError">
                                     <span class="valid-icon hidden"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="invalid-icon hidden"><i class="fa-solid fa-circle-xmark"></i></span>
                                 </div>
-                                <p id="fullNameError" class="error-msg hidden">
-                                    Enter at least 2 characters.
-                                </p>
+                                <p id="fullNameError" class="error-msg hidden">Enter at least 2 characters.</p>
                             </div>
 
                             <div class="form-group">
-                                <label for="email" class="form-label">
-                                    Email Address <span class="text-required">*</span>
-                                </label>
+                                <label for="email" class="form-label">Email Address <span
+                                        class="text-required">*</span></label>
                                 <div class="input-container">
-                                    <input type="email" id="email" name="email" required
-                                        class="form-input"
-                                        placeholder="johndoe@example.com"
-                                        aria-required="true"
+                                    <input type="email" id="email" name="email" required class="form-input"
+                                        placeholder="johndoe@example.com" aria-required="true"
                                         aria-describedby="emailError">
                                     <span class="valid-icon hidden"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="invalid-icon hidden"><i class="fa-solid fa-circle-xmark"></i></span>
                                 </div>
-                                <p id="emailError" class="error-msg hidden">
-                                    Enter a valid email address.
-                                </p>
+                                <p id="emailError" class="error-msg hidden">Enter a valid email address.</p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="city" class="form-label">
-                                Nearest Tour Location <span class="text-required">*</span>
-                            </label>
+                            <label for="city" class="form-label">Nearest Tour Location <span
+                                    class="text-required">*</span></label>
                             <div class="input-container">
-                                <select id="city" name="city" required
-                                    class="form-select"
-                                    aria-required="true"
+                                <select id="city" name="city" required class="form-select" aria-required="true"
                                     aria-describedby="cityError">
-                                    
                                     <option value="" disabled selected>-- Select nearest tour city --</option>
                                     <option value="London">London / South UK</option>
                                     <option value="Manchester">Manchester / North UK</option>
                                     <option value="Glasgow">Glasgow / Scotland</option>
                                     <option value="Dublin">Dublin / Ireland</option>
                                     <option value="Belfast">Belfast / Northern Ireland</option>
-                                    <option value="InternationaL">International / Other Location</option>
+                                    <option value="International">International / Other Location</option>
                                 </select>
                                 <svg class="select-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                             <p id="cityError" class="error-msg hidden">
@@ -131,38 +110,36 @@
                     <hr class="section-divider">
 
                     <fieldset class="form-fieldset">
-                        <legend class="form-legend">
-                            02. Content & Tour Preferences
-                        </legend>
+                        <legend class="form-legend">02. Content & Tour Preferences</legend>
 
                         <div class="form-group">
-                            <label for="favoriteEra" class="form-label">
-                                Favorite Halcyon Release
-                            </label>
+                            <label for="favoriteEra" class="form-label">Favorite Halcyon Release</label>
                             <div class="input-container">
                                 <select id="favoriteEra" name="favoriteEra" class="form-select">
                                     <option value="New Fan (Just Discovered)">New Fan (Just Discovered)</option>
                                     <option value="Neon Shadows EP (2024)">Neon Shadows EP (2024)</option>
                                     <option value="Acoustic Sessions (2025)">Acoustic Sessions (2025)</option>
-                                    <option value="Hyped for Echoes of Autumn (2026)">Hyped for Echoes of Autumn (2026)</option>
+                                    <option value="Hyped for Echoes of Autumn (2026)">Hyped for Echoes of Autumn (2026)
+                                    </option>
                                 </select>
                                 <svg class="select-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
                                 </svg>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <span class="form-label">
-                                Content Interests <span class="text-required">*</span>
-                            </span>
+                            <span class="form-label">Content Interests <span class="text-required">*</span></span>
                             <div class="checkbox-grid select-none" id="checkboxGroup">
                                 <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Gig Presales" checked class="custom-checkbox">
+                                    <input type="checkbox" name="interests" value="Gig Presales" checked
+                                        class="custom-checkbox">
                                     <span class="checkbox-text">Tour & Gig Presales</span>
                                 </label>
                                 <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Unreleased Demos" checked class="custom-checkbox">
+                                    <input type="checkbox" name="interests" value="Unreleased Demos" checked
+                                        class="custom-checkbox">
                                     <span class="checkbox-text">Studio Demos & Audio</span>
                                 </label>
                                 <label class="checkbox-card select-none">
@@ -170,7 +147,8 @@
                                     <span class="checkbox-text">Merch & Vinyl Drops</span>
                                 </label>
                                 <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Studio Vlogs" class="custom-checkbox">
+                                    <input type="checkbox" name="interests" value="Studio Vlogs"
+                                        class="custom-checkbox">
                                     <span class="checkbox-text">Backstage Vlogs</span>
                                 </label>
                             </div>
@@ -180,30 +158,27 @@
                         </div>
 
                         <div class="form-group">
-                            <span class="form-label">
-                                Frequency of Updates <span class="text-required">*</span>
-                            </span>
+                            <span class="form-label">Frequency of Updates <span class="text-required">*</span></span>
                             <div class="radio-group select-none">
                                 <label class="radio-label select-none">
-                                    <input type="radio" name="frequency" value="Major Updates Only" checked class="custom-radio">
+                                    <input type="radio" name="frequency" value="Major Updates Only" checked
+                                        class="custom-radio">
                                     <span>Major News & Tour Announcements</span>
                                 </label>
                                 <label class="radio-label select-none">
-                                    <input type="radio" name="frequency" value="Weekly Insider Digest" class="custom-radio">
+                                    <input type="radio" name="frequency" value="Weekly Insider Digest"
+                                        class="custom-radio">
                                     <span>Weekly Studio Digest</span>
                                 </label>
                             </div>
                         </div>
-                        
+
                         <div class="form-group">
                             <div class="textarea-header">
-                                <label for="fanMessage" class="form-label">
-                                    Band Note / Song Request (Optional)
-                                </label>
+                                <label for="fanMessage" class="form-label">Band Note / Song Request (Optional)</label>
                                 <span id="charCounter" class="char-counter">0 / 200</span>
                             </div>
-                            <textarea id="fanMessage" name="fanMessage" rows="3" maxlength="200"
-                                class="form-textarea"
+                            <textarea id="fanMessage" name="fanMessage" rows="3" maxlength="200" class="form-textarea"
                                 placeholder="Song request for upcoming tour or message for Halcyon..."></textarea>
                         </div>
                     </fieldset>
@@ -212,7 +187,8 @@
                         <label class="terms-label">
                             <input type="checkbox" id="terms" name="terms" required class="custom-checkbox">
                             <span class="terms-text">
-                                I agree to receive email dispatches from Halcyon. I understand I can unsubscribe anytime. <span class="text-required">*</span>
+                                I agree to receive email dispatches from Halcyon. I understand I can unsubscribe
+                                anytime. <span class="text-required">*</span>
                             </span>
                         </label>
                         <p id="termsError" class="error-msg hidden">
@@ -228,21 +204,15 @@
         </div>
     </main>
 
-    <footer class="site-footer"> 
-        <div class="footer-container">
-            <div>
-                <p class="footer-brand">HALCYON OFFICIAL</p>
-                <p>&copy; 2026 Halcyon.</p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Accessibility Statement</a>
-            </div>
-        </div>
+    <footer>
+        <br>
+        <br>
+        <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
+        <p><b>Instagram: </b> @halcyonband</p>
+        <p><b>Email: </b> info@halcyonband.com</p>
+        <p><b>Phone: </b> (555) 555-5555</p>
+        <p>&copy; 2026 Halcyon. All rights reserved.</p>
     </footer>
-
-    <script src="js/main.js"></script>
 </body>
+
 </html>
