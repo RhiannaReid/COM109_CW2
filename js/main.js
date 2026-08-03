@@ -45,7 +45,7 @@ $(document).ready(function () {
                 <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
                 <p><b>Instagram: </b> @halcyonband</p>
                 <p><b>Email: </b> info@halcyonband.com</p>
-                <p><b>Phone: </b> (555) 555-5555</p>
+                <p><b>Phone: </b> +44 1234 567890</p>
                 <p>&copy; 2026 Halcyon. All rights reserved.</p>
             </footer>
         `);
