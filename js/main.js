@@ -6,6 +6,54 @@ function openSpotify() {
 
 
 $(document).ready(function () {
+    const $siteHeader = $("#siteHeader");
+    const $siteFooter = $("#siteFooter");
+
+    function getNavItems() {
+        return [
+            { href: "index.html", label: "Home", page: "home" },
+            { href: "events.html", label: "Events", page: "events" },
+            { href: "about.html", label: "About Us", page: "about" },
+            { href: "store.html", label: "Store", page: "store" },
+            { href: "newsletter.html", label: "Newsletter", page: "newsletter" },
+            { href: "contact.html", label: "Contact", page: "contact" }
+        ];
+    }
+
+    function renderHeader() {
+        const activePage = $("body").attr("data-page") || "";
+        const navHtml = getNavItems().map(function (item) {
+            const activeClass = item.page === activePage ? "active" : "";
+            return `<a href="${item.href}" class="${activeClass}">${item.label}</a>`;
+        }).join("");
+
+        $siteHeader.html(`
+            <div class="top-nav">
+                ${navHtml}
+                <a href="#" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+            </div>
+        `);
+    }
+
+    function renderFooter() {
+        $siteFooter.html(`
+            <footer>
+                <br>
+                <br>
+                <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
+                <p><b>Instagram: </b> @halcyonband</p>
+                <p><b>Email: </b> info@halcyonband.com</p>
+                <p><b>Phone: </b> (555) 555-5555</p>
+                <p>&copy; 2026 Halcyon. All rights reserved.</p>
+            </footer>
+        `);
+    }
+
+    renderHeader();
+    renderFooter();
+
     const $form = $("#newsletterForm");
     const $fullName = $("#fullName");
     const $email = $("#email");
