@@ -18,9 +18,9 @@
 .contact-card {
     background: var(--contact-card-bg);
     border: 1px solid var(--contact-card-border);
-    border-radius: 20px;
+    border-radius: 10px;
     padding: 2.2rem;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
 }
 
 .eyebrow {
