@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="js/main.js" defer></script>
+		<link rel="stylesheet" href="css/styles-events.css"> <!--Replace with main style sheet when integrated -->
+		<link rel="stylesheet" href="css/styles-home.css">
+		<title>Halcyon | Waitlist</title>
+		<link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
+		<link href='https://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet'>
+	</head>
+	<body>
+		<div class = "top-nav">
+            <a class = "active" href="index-home.html"> Home </a>
+            <a href="index.html"> News </a>
+            <a href="UpcomingEvents.html"> Events </a>
+            <a href="about.html"> About Us </a>
+            <a href="merch.html"> Merch </a>
+            <a href="contact.html"> Contact </a>
+        </div>
+		
+		<div class = "concert-image-v2">
+            <div class = "hero-text">
+				<h1 style = "font-size: 8vw;">Join Waitlist</h1>
+            </div>
+			<div class="search-filter">
+				<form id="waitlist-form" name="waitlist-form" class="waitlist-form">
+					<label>Enter Contact Details</label><br>
+					<input type="text" id="full-name" name="full-name" placeholder="Full Name" required><br>
+					<input type="text" id="email-address" name="email-address" placeholder="Email Address" required><br>
+					<br>
+					<label>Select Waitlisted Event</label><br>
+					<select class="select-event" id="selectEvent" required>
+					  <!-- Event Titles from JavaScript-->
+					</select><br>
+					<br>
+					<button class="button" type="submit">Join</button>
+				</form>
+			</div>
+        </div>
+
+		<footer>
+			<br> <br> <p> <b>Follow us on social media and stay up to date with our latest news and events! </b> </p>
+			<p> <b> Instagram: </b> @halcyonband </p> 
+			<p> <b> Email: </b> info@halcyonband.com </p>
+			<p> <b> Phone: </b> (555) 555-5555 </p>
+			<p> &copy; 2026 Halcyon. All rights reserved. </p>
+		</footer>
+	</body>
+</html>
