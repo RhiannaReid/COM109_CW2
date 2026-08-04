@@ -21,7 +21,7 @@ $(document).ready(function () {
     function getNavItems() {
         return [
             { href: "index.html", label: "Home", page: "home" },
-            { href: "events.html", label: "Events", page: "events" },
+            { href: "UpcomingEvents.html", label: "Events", page: "events" },
             { href: "about.html", label: "About Us", page: "about" },
             { href: "store.html", label: "Store", page: "store" },
             { href: "newsletter.html", label: "Newsletter", page: "newsletter" },
@@ -238,7 +238,7 @@ $(document).ready(function () {
 
 
 // Initialising a list of tour dates
-const tourDatesUrl = "js/tourDates.json";
+const tourDatesUrl = "json/tourDates.json";
 let tourDates = [];
 
 const eventContainer = document.querySelector(".tour_dates_wrapper");
