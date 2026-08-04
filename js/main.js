@@ -3,7 +3,16 @@ function openSpotify() {
 }
 
 // ------------------------ rhianna ^ --------------------------------------------------------------- adam v -----------------
+// Email regex
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.trim());
+}
 
+function isFullNameValid(name){
+	const isValid = name.length >= 2;
+	return isValid
+}
 
 $(document).ready(function () {
     const $siteHeader = $("#siteHeader");
@@ -66,12 +75,6 @@ $(document).ready(function () {
     const $errorSummary = $("#formErrorSummary");
     const $errorList = $("#errorList");
 
-    // Email regex
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email.trim());
-    }
-
     // Helper functions for field states
     function setFieldState($input, isValid, $errorElem, errorText) {
         const $container = $input.closest(".input-container").length ? $input.closest(".input-container") : $input.closest("div");
@@ -98,7 +101,7 @@ $(document).ready(function () {
     // Individual Field Validators
     function validateFullName() {
         const value = $fullName.val().trim();
-        const isValid = value.length >= 2;
+        const isValid = isFullNameValid(value);
 
         return setFieldState($fullName, isValid, $("#fullNameError"), "Full Name must be at least 2 characters.");
     }
@@ -230,3 +233,260 @@ $(document).ready(function () {
         }
     });
 });
+
+/*--------------------------------------- rebecca v -----------------*/
+
+
+// Initialising a list of tour dates
+const tourDates=[
+	{
+    "id": 1,
+    "eventTitle": "Estadio River Plate",
+    "eventDate": "25th January 2027",
+    "eventLocation": "Buenos Aires, Argentina",
+    "category": "South America",
+    "locationURL": "https://maps.app.goo.gl/wiWkqhn7uR6r8XtZ7",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.ticketek.com.ar/"
+},
+{
+    "id": 2,
+    "eventTitle": "Sydney Opera House",
+    "eventDate": "3rd March 2027",
+    "eventLocation": "Sydney, Australia",
+    "category": "Australia and Oceania",
+    "locationURL": "https://maps.app.goo.gl/RhG9nugBTUk1L3Q56",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.sydneyoperahouse.com/"
+},
+{
+    "id": 3,
+    "eventTitle": "Mercedes-Benz Arena",
+    "eventDate": "11th April 2027",
+    "eventLocation": "Berlin, Germany",
+    "category": "Europe",
+    "locationURL": "https://maps.app.goo.gl/8VwAo1HtrwNYpExG8",
+    "eventStatus": "Join Waitlist",
+    "statusURL": "JoinEventWaitlist.html"
+},
+{
+    "id": 4,
+    "eventTitle": "L'Olympia Theatre",
+    "eventDate": "9th May 2027",
+    "eventLocation": "Paris, France",
+    "category": "Europe",
+    "locationURL": "https://maps.app.goo.gl/XjM8Yn3fsHNT9AYp7",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.fnacspectacles.com/"
+},
+{
+    "id": 5,
+    "eventTitle": "Wembley Stadium",
+    "eventDate": "18th June 2027",
+    "eventLocation": "London, UK",
+    "category": "UK and Ireland",
+    "locationURL": "https://maps.app.goo.gl/3eb2w4PStiLSwckY8",
+    "eventStatus": "Join Waitlist",
+    "statusURL": "JoinEventWaitlist.html"
+},
+{
+    "id": 6,
+    "eventTitle": "Red Rocks Amphitheatre",
+    "eventDate": "14th July 2027",
+    "eventLocation": "Colorado, USA",
+    "category": "North America",
+    "locationURL": "https://maps.app.goo.gl/2fYt9mXq8sP4k7L3A",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.redrocksonline.com/"
+},
+{
+    "id": 7,
+    "eventTitle": "Belsonic",
+    "eventDate": "7th August 2027",
+    "eventLocation": "Belfast, UK",
+    "category": "UK and Ireland",
+    "locationURL": "https://maps.app.goo.gl/AHBMQpaNaEFoEvgbA",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.ticketmaster.co.uk/"
+},
+{
+    "id": 8,
+    "eventTitle": "O2 Belfast",
+    "eventDate": "15th August 2027",
+    "eventLocation": "Belfast, UK",
+    "category": "UK and Ireland",
+    "locationURL": "https://maps.app.goo.gl/6GauRHqYpvb5F8kQ7",
+    "eventStatus": "Join Waitlist",
+    "statusURL": "JoinEventWaitlist.html"
+},
+{
+    "id": 9,
+    "eventTitle": "3Arena",
+    "eventDate": "19th August 2027",
+    "eventLocation": "Dublin, Ireland",
+    "category": "UK and Ireland",
+    "locationURL": "https://maps.app.goo.gl/3ReJX9YDXRXVpLdP7",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.ticketmaster.ie/"
+},
+{
+    "id": 10,
+    "eventTitle": "Madison Square Garden",
+    "eventDate": "12th September 2027",
+    "eventLocation": "New York City, USA",
+    "category": "North America",
+    "locationURL": "https://maps.app.goo.gl/idzy5LKEz1zp8JY57",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.ticketmaster.com/"
+},
+{
+    "id": 11,
+    "eventTitle": "Tokyo Dome",
+    "eventDate": "22nd October 2027",
+    "eventLocation": "Tokyo, Japan",
+    "category": "Asia",
+    "locationURL": "https://maps.app.goo.gl/2SVR28274JXR7eWi6",
+    "eventStatus": "Join Waitlist",
+    "statusURL": "JoinEventWaitlist.html"
+},
+{
+    "id": 12,
+    "eventTitle": "Rogers Arena",
+    "eventDate": "30th November 2027",
+    "eventLocation": "Vancouver, Canada",
+    "category": "North America",
+    "locationURL": "https://maps.app.goo.gl/D71c7pexExvfxPHL8",
+    "eventStatus": "Buy Tickets",
+    "statusURL": "https://www.ticketmaster.ca/"
+}	
+];
+
+const eventContainer = document.querySelector(".tour_dates_wrapper");
+const filterEvents = document.querySelectorAll("li button");
+const searchBar = document.querySelector(".btn_search");
+const searchInput = document.querySelector(".event_search");
+const waitlistSelect = document.getElementById("selectEvent");
+
+// display dynamic data
+window.addEventListener('DOMContentLoaded',()=>{
+	
+	if(eventContainer){
+		displayEventData(tourDates);
+	};
+	
+	
+	if (waitlistSelect){
+		// defining a function to format and display tour event titles for the waitlist form
+		populateWaitlistDropdown(tourDates);
+	};
+});
+
+// searching events
+if(searchBar)
+{
+	searchBar.addEventListener('click', (e)=>{
+		let searchValue=searchInput.value;
+		
+		if(searchValue != ""){
+			let searchEvent = tourDates.filter(function(eventData){
+				if(eventData.eventTitle.includes(searchValue)){
+					return eventData;
+				};
+			});
+			
+			displayEventData(searchEvent);
+		} else {
+			alert("Invalid search. Please enter the event you are searching for.");
+		};
+	});
+}
+
+// filtering events
+filterEvents.forEach((filters)=>{
+	filters.addEventListener('click',(e)=>{
+		const eventLocation = e.target.dataset.id;
+		const eventCategory = tourDates.filter(function(filt){
+			if(filt.category === eventLocation){
+					return filt;
+			};
+		});
+		
+		if(eventLocation === "All Locations"){
+			displayEventData(tourDates);
+		} else {
+			displayEventData(eventCategory);
+		};
+	});
+});
+
+
+// defining a function to format and display tour events
+function displayEventData(tourDates){
+	let displayData = tourDates.map(function(event_items){
+		return `
+			  <tr>
+				<td>${event_items.eventDate}</td>
+				<td>${event_items.eventTitle}</td>
+				<td><a href="${event_items.locationURL}">${event_items.eventLocation}</a></td>
+				<td><input type="button" onclick="location.href='${event_items.statusURL}';" value="${event_items.eventStatus}"></td>
+			  </tr>
+			`;
+	}).join("");
+	eventContainer.innerHTML=displayData;
+};
+
+// defining a function to filter and display tour event titles for the waitlist dropdown
+function populateWaitlistDropdown(events){
+	events.forEach(event_item => {
+		if(event_item.eventStatus === "Join Waitlist"){
+			console.log("Adding option:", event_item.eventTitle);
+			const option = document.createElement("option");
+			option.value = event_item.id;
+			option.textContent = event_item.eventTitle;
+			waitlistSelect.appendChild(option);
+		};
+	});
+};
+
+// form validation
+const formSubmission = document.getElementById("waitlist-form");
+
+if (formSubmission) {
+    formSubmission.addEventListener("submit", function (event) {
+        const email = document.getElementById("email-address");
+        const fullName = document.getElementById("full-name");
+		
+		// Clear any previous custom validity before re-checking
+        email.setCustomValidity("");
+        fullName.setCustomValidity("");
+
+        const emailValid = isValidEmail(email.value);
+        const nameValid = isFullNameValid(fullName.value);
+
+        console.log("Check 1");
+        email.setCustomValidity(emailValid ? "" : "Please enter a valid email address.");
+        console.log("Check 2");
+        fullName.setCustomValidity(nameValid ? "" : "Please enter your full name.");
+        console.log("Email valid:", emailValid);
+        console.log("Name valid:", nameValid);
+
+        // Stop form submission if ANY field is invalid
+        if (!emailValid) {
+            event.preventDefault();
+			this.reportValidity();
+            console.log("Check 3");
+        }
+        if (!nameValid) {
+            event.preventDefault();
+            console.log("Check 4");
+			this.reportValidity();
+        }
+    });
+	
+	document.getElementById("email-address").addEventListener("input", function () {
+        this.setCustomValidity("");
+    });
+    document.getElementById("full-name").addEventListener("input", function () {
+        this.setCustomValidity("");
+    });
+}
