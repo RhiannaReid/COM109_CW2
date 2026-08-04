@@ -13,14 +13,18 @@
 
 .contact-hero {
     width: min(900px, 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 
-.contact-card {
+.contact-card,
+.contact-form-card {
     background: var(--contact-card-bg);
     border: 1px solid var(--contact-card-border);
     border-radius: 10px;
     padding: 2.2rem;
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0);
 }
 
 .eyebrow {
@@ -66,10 +70,105 @@
     transform: translateY(-1px);
     background: rgba(212, 154, 84, 0.15);
 }
+.main-content {
+    max-width: 900px;
+    margin: -480px auto 0 auto;
+    padding: 0 1.5rem 4rem 1.5rem;
+    position: relative;
+    z-index: 10;
+}
 
 .social-link i {
     font-size: 1.15rem;
     color: var(--accent-gold);
+}
+
+.contact-form-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-cream);
+}
+
+.contact-form p {
+    color: rgba(236, 235, 230, 0.9);
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+}
+
+.form-field label {
+    font-size: 0.95rem;
+    color: var(--text-cream);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 0.8rem 0.9rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text-cream);
+    font-family: var(--font-marcellus);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(236, 235, 230, 0.7);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.contact-form button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.8rem 1.2rem;
+    background: var(--accent-gold);
+    color: #1a1a1a;
+    font-family: var(--font-marcellus);
+    cursor: pointer;
+    margin-top: 0.2rem;
+}
+
+.contact-form button:hover {
+    background: #e0a863;
+}
+
+.form-status {
+    display: none;
+    margin-top: 0.7rem;
+    color: #d8f3dc;
+    font-size: 0.95rem;
+}
+
+.form-status.show {
+    display: block;
 }
 
 .contact-details {
@@ -99,7 +198,8 @@
         padding: 1.5rem;
     }
 
-    .social-links {
+    .social-links,
+    .form-row {
         grid-template-columns: 1fr;
     }
 }
