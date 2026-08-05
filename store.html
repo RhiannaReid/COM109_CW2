@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/styles-nav.css">
+    <link rel="stylesheet" href="css/styles-store.css">
 
     <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
@@ -19,16 +20,40 @@
 <body data-page="store">
     <div class="top-nav" id="siteHeader"></div>
 
-    <!-- <div class="header-actions">
-        <button type="button" id="cartToggleBtn" class="cart-toggle-btn" aria-label="View Cart">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span>Cart</span>
-            <span id="cartBadge" class="cart-badge">0</span>
-        </button>
-    </div> -->
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 8vw;">Halcyon Shop</h1>
+            <p style="font-size: 2vw;">Bring home the band with merch and music.</p>
+        </div>
+    </div>
 
     <main class="main-content">
+        <section class="store-intro">
+            <h2 class="section-heading">Merch for the Halcyon Fan</h2>
+            <p class="section-copy">Choose your favourite items and add them to your cart. Your selections are saved locally in your browser.</p>
+        </section>
 
+        <section class="store-grid" id="productGrid"></section>
+
+        <section class="cart-panel" id="cartPanel">
+            <div class="cart-header">
+                <div>
+                    <h2 class="cart-title">Your Cart</h2>
+                    <p class="cart-subtitle">Items added to your cart are stored locally in your browser.</p>
+                </div>
+                <span class="cart-count" id="cartCount">0 items</span>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span>Total</span>
+                    <strong id="cartTotal">£0.00</strong>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" id="clearCartBtn" class="button button-secondary">Clear Cart</button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <div id="siteFooter"></div>
