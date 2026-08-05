@@ -30,9 +30,10 @@ $(document).ready(function () {
         $siteHeader.html(`
             <div class="top-nav">
                 ${navHtml}
-                <a href="#" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+                    <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
+                    </a>
             </div>
         `);
     }
@@ -50,7 +51,7 @@ $(document).ready(function () {
             </footer>
         `);
     }
-    //======= Things for j Query - Daniel =====
+    //======= Things for j Query w/header and footer - Daniel =====
 
     function getStoredCart() {
         const savedCart = localStorage.getItem('halcyonCart');
@@ -69,42 +70,42 @@ $(document).ready(function () {
         {
             id: 'album-vinyl',
             title: 'Halcyon Vinyl Album',
-            description: 'A collectible vinyl record with exclusive artwork.',
+            description: 'A collectible vinyl record with exclusive artwork... chance to be signed by a band member!',
             price: 24.99,
             label: 'Vinyl'
         },
         {
             id: 'hoodie-black',
             title: 'Halcyon Hoodie',
-            description: 'Comfortable black hoodie with the band logo.',
+            description: 'Comfortable black hoodie with the band logo',
             price: 39.99,
             label: 'Hoodie'
         },
         {
             id: 'tshirt-cream',
             title: 'Halcyon T-Shirt',
-            description: 'Soft, cream-coloured tee with a vintage design.',
+            description: 'Soft, cream-coloured tee with a vintage design',
             price: 19.99,
             label: 'T-Shirt'
         },
         {
             id: 'poster-set',
-            title: 'Poster Pack',
-            description: 'Set of 3 limited edition posters for your wall.',
+            title: 'Pack of 3 Posters',
+            description: 'Set of 3 limited edition posters for your wall',
             price: 14.99,
             label: 'Poster'
         },
         {
             id: 'cap-olive',
-            title: 'Halcyon Cap',
-            description: 'Olive baseball cap with embroidered logo.',
+            title: 'Halcyon Hat',
+            description: 'Olive baseball cap with embroidered logo',
             price: 16.99,
             label: 'Cap'
         },
         {
             id: 'sticker-bundle',
             title: 'Sticker Bundle',
-            description: 'Collection of 8 band stickers for your gear.',
+            description: 'Collection of 8 band stickers for your gear',
             price: 7.99,
             label: 'Stickers'
         }
@@ -157,6 +158,17 @@ $(document).ready(function () {
         const $cartCount = $('#cartCount');
         const $cartTotal = $('#cartTotal');
         const cart = getStoredCart();
+            const $navBadge = $('#navCartBadge');
+
+            // Update header badge (total quantity of items)
+            const cartCount = getCartItemCount(cart);
+            if ($navBadge.length) {
+                if (cartCount > 0) {
+                    $navBadge.text(cartCount).removeClass('hidden');
+                } else {
+                    $navBadge.addClass('hidden');
+                }
+            }
 
         if (!$cartItems.length || !$cartCount.length || !$cartTotal.length) {
             return;
@@ -183,7 +195,6 @@ $(document).ready(function () {
             $cartItems.html(cartHtml);
         }
 
-        const cartCount = getCartItemCount(cart);
         $cartCount.text(`${cartCount} item${cartCount === 1 ? '' : 's'}`);
         $cartTotal.text(formatPrice(getCartTotal(cart)));
     }
@@ -246,6 +257,8 @@ $(document).ready(function () {
 // ======== bits and bobs for the shop - Daniel ========
     renderHeader();
     renderFooter();
+    // Ensure header cart badge is in sync on all pages
+    renderCart();
 
     if ($('body').data('page') === 'store') {
         setupStoreEvents();
