@@ -85,6 +85,8 @@ function initNewsletterPage() {
         const $validIcon = $container.find(".valid-icon");
         const $invalidIcon = $container.find(".invalid-icon");
 
+        $input.attr("aria-invalid", (!isValid).toString());
+
         if (isValid) {
             $input.removeClass("border-red-500").addClass("border-emerald-500");
             if ($errorElem.length) $errorElem.addClass("hidden");

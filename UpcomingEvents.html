@@ -27,14 +27,14 @@
 				<h2 style = "font-size: 4vw;"> Tour Dates </h2>
             </div>
 			<div class="search-filter">
-					<form class="search-event-button">
-						<input type="search" placeholder="Search Events" class="event_search">
-						<button type="button" class="btn_search">
-							<i>Search</i>
+					<form class="search-event-button" role="search">
+						<input type="search" placeholder="Search Events" class="event_search" aria-label="Search Events">
+						<button type="button" class="btn_search" aria-label="Search">
+							<i aria-hidden="true">Search</i>
 						</button>
 					</form>
 				<div>
-					<ul class="filter-event-buttons">
+					<ul class="filter-event-buttons" aria-label="Filter events by region">
 						<li><button class="filter-button" data-id="All Locations">All Locations</button></li>
 						<li><button class="filter-button" data-id="Asia">Asia</button></li>
 						<li><button class="filter-button" data-id="Australia and Oceania">Australia and Oceania</button></li>
@@ -49,8 +49,8 @@
 
 		<!-- List of tour dates -->
 		<div class="display-events">
-			<table class="tour-dates-table" >
-				<tbody class="tour_dates_wrapper">
+			<table class="tour-dates-table">
+				<tbody class="tour_dates_wrapper" aria-live="polite">
 					<!-- Tour dates added through Jscript.js file-->
 				</tbody>
 			</table>

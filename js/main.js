@@ -158,7 +158,7 @@ $(document).ready(function () {
                 ${navHtml}
                 <a href="store.html#cartPanel" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
                     <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
-                    <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
+                    <span id="navCartBadge" class="nav-cart-badge hidden" aria-live="polite" aria-atomic="true">0</span>
                 </a>
             </nav>
         `);

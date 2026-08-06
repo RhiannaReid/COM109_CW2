@@ -170,7 +170,7 @@
                         <div class="form-group">
                             <div class="textarea-header">
                                 <label for="fanMessage" class="form-label">Band Note / Song Request (Optional)</label>
-                                <span id="charCounter" class="char-counter">0 / 200</span>
+                                <span id="charCounter" class="char-counter" aria-live="polite" aria-atomic="true">0 / 200</span>
                             </div>
                             <textarea id="fanMessage" name="fanMessage" rows="3" maxlength="200" class="form-textarea"
                                 placeholder="Song request for upcoming tour or message for Halcyon..."></textarea>
@@ -179,7 +179,7 @@
 
                     <fieldset class="form-fieldset">
                         <label class="terms-label">
-                            <input type="checkbox" id="terms" name="terms" required class="custom-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required aria-required="true" aria-describedby="termsError" class="custom-checkbox">
                             <span class="terms-text">
                                 I agree to receive emails from Halcyon. I understand I can unsubscribe
                                 anytime. <span class="text-required">*</span>
