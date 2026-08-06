@@ -1,4 +1,6 @@
-[
+// Tour dates data loaded as a plain JavaScript asset for file:// compatibility to remove potential cors issues.
+// In a production environemnt this file would be JSON format
+const tourDates = [
     {
         "id": 1,
         "eventTitle": "Estadio River Plate",
@@ -119,4 +121,4 @@
         "eventStatus": "Buy Tickets",
         "statusURL": "https://www.ticketmaster.ca/"
     }
-]
+];
