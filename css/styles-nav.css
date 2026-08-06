@@ -1,0 +1,43 @@
+footer {
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: var(--font-marcellus, 'Marcellus', serif);
+}
+
+.top-nav {
+    overflow: hidden;
+    background-color: var(--nav-bg, #182825);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+.top-nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-family: var(--font-marcellus, 'Marcellus', serif);
+}
+
+.top-nav a:hover {
+    background-color: var(--accent-gold, #D49A54);
+    color: black;
+}
+
+.top-nav a.active {
+    background-color: var(--nav-active, #3A5C4A);
+    color: white;
+}
+
+.top-nav a.cart-icon {
+    float: right;
+    font-size: 18px;
+}

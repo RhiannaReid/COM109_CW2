@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store - HALCYON</title>
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    
+
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-nav.css">
+    <link rel="stylesheet" href="css/styles-store.css">
+
+    <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
 </head>
-<body>
-    <header class="site-header select-none">
-        <div class="header-container">
-            <div class="header-content">
-                <a href="index.html" class="site-logo">HALCYON</a>
 
-                <nav class="nav-menu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="#" class="nav-link">About</a>
-                    <a href="#" class="nav-link">Gigs & Tours</a>
-                    <a href="store.html" class="nav-link" aria-current="page">Store</a>
-                    <a href="newsletter.html" class="nav-link">Newsletter</a>
-                    <a href="#" class="nav-link">Contact</a>
-                </nav>
+<body data-page="store">
+    <div class="top-nav" id="siteHeader"></div>
 
-                <div class="header-actions">
-                    <button type="button" id="cartToggleBtn" class="cart-toggle-btn" aria-label="View Cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span>Cart</span>
-                        <span id="cartBadge" class="cart-badge">0</span>
-                    </button>
-                </div>
-            </div>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 8vw;">Halcyon Shop</h1>
+            <p style="font-size: 2vw;">Bring home the band with merch and music.</p>
         </div>
-    </header>
+    </div>
 
     <main class="main-content">
-        
+        <section class="store-intro">
+            <h2 class="section-heading">Merch for the Halcyon Fan</h2>
+            <p class="section-copy">Choose your favourite items and add them to your cart. Your selections are saved locally in your browser.</p>
+        </section>
+
+        <section class="store-grid" id="productGrid"></section>
+
+        <section class="cart-panel" id="cartPanel">
+            <div class="cart-header">
+                <div>
+                    <h2 class="cart-title">Your Cart</h2>
+                    <p class="cart-subtitle">Items added to your cart are stored locally in your browser.</p>
+                </div>
+                <span class="cart-count" id="cartCount">0 items</span>
+            </div>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span>Total</span>
+                    <strong id="cartTotal">£0.00</strong>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" id="clearCartBtn" class="button button-secondary">Clear Cart</button>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="site-footer"> 
-        <div class="footer-container">
-            <div>
-                <p class="footer-brand">HALCYON OFFICIAL</p>
-                <p>&copy; 2026 Halcyon.</p>
-            </div>
-
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Accessibility Statement</a>
-            </div>
-        </div>
-    </footer>
+    <div id="siteFooter"></div>
 
     <script src="js/main.js"></script>
 </body>
+
 </html>
