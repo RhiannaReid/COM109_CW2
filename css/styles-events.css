@@ -1,25 +1,29 @@
-.search-filter{
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%, -10%);
+/* Events & Tour Dates Styling */
+
+.search-filter {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -10%);
     margin: 2rem;
-	justify-content: center;
+    justify-content: center;
 }
 
 .filter-event-buttons li {
-	width: 100%;
+    width: 100%;
     display: inline;
-	align-items:center;
+    align-items: center;
 }
 
-.search-event-button{
-	width: 100%;
-	margin: auto;
-    padding: 1rem;    
+.search-event-button {
+    width: 100%;
+    margin: auto;
+    padding: 1rem;
 }
 
-.event_search, .btn_search, .filter-button{
+.event_search,
+.btn_search,
+.filter-button {
     background-color: var(--input-bg);
     border: 1px solid var(--input-border);
     color: var(--text-dark);
@@ -31,85 +35,85 @@
     box-sizing: border-box;
 }
 
-.event_search{
-    width:70%;
+.event_search {
+    width: 70%;
 }
 
-.btn_search{
+.btn_search {
     width: 20%;
+    cursor: pointer;
 }
 
-.filter-button{
-    font-size: 0.8rem;
-    padding: 0.5rem;
+.btn_search:hover,
+.filter-button:hover {
+    background-color: var(--accent-gold);
+    color: #000000;
+}
+
+.filter-button {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.85rem;
     margin: 0.25rem;
+    cursor: pointer;
 }
 
-.display-events{
-	width: 90%;
-	margin:auto;
-}
-
-.events{
-	align-items: center;
+.display-events {
+    width: 90%;
+    margin: auto;
+    max-width: 1100px;
 }
 
 .tour-dates-table {
-    margin: -4rem auto 0 auto;
+    margin: -4rem auto 3rem auto;
     background-color: var(--card-cream);
     color: var(--text-dark);
-    font-size: 1.2rem;
-    border: 1px solid var(--input-border);
-    border-radius: 8px;
+    font-size: 1.1rem;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
     border-collapse: separate;
-    border-spacing: 0 2rem; /* horizontal vertical */
+    border-spacing: 0 1rem;
     position: relative;
     z-index: 1;
+    width: 100%;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .tour-dates-table td {
-	padding:1rem;
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
 }
 
-.waitlist-form{
-	display: inline;
+.tour-dates-table a {
+    color: var(--accent-forest);
+    font-weight: bold;
+    text-decoration: underline;
 }
 
-.select-event{
-	border-radius: 12px;
-	height: 25px;
-	width: 200px;
-	display: inline;
-	align-items:center;
-	font-family: 'Marcellus', serif;
+.tour-dates-table a:hover {
+    color: var(--accent-blue);
 }
 
-input[type="button"] {
-  background-color: #D49A54;
-  border: none;
-  color: black;
-  font-family: 'Marcellus', serif;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  top: 50%;
-  cursor: pointer;
-  border-radius: 16px;
-  height: 50px;
-  width: 200px;
-  font-size: 1.2rem;
-  display: block;
+.tour-dates-table input[type="button"] {
+    background-color: var(--accent-gold);
+    border: none;
+    color: #000000;
+    font-family: var(--font-marcellus);
+    padding: 8px 18px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-block;
 }
 
-input[type="button"]:hover {
-  background-color: #146FA1;
-    color: black;
+.tour-dates-table input[type="button"]:hover {
+    background-color: var(--accent-forest);
+    color: #ffffff;
 }
 
-/*Waitlist submit button*/
+/* Waitlist Submit Button */
 .button {
     background-color: var(--accent-gold);
     color: #000000;
