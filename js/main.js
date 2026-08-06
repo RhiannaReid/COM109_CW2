@@ -39,7 +39,7 @@ $(document).ready(function () {
         $siteHeader.html(`
             <nav class="top-nav" aria-label="Main Navigation">
                 ${navHtml}
-                <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                <a href="store.html#cartPanel" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
                 </a>
@@ -267,8 +267,24 @@ $(document).ready(function () {
     // Ensure header cart badge is in sync on all pages
     renderCart();
 
+    $(document).on('click', '.cart-icon', function (e) {
+        const $cartPanel = $('#cartPanel');
+        if ($cartPanel.length > 0) {
+            e.preventDefault();
+            $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
     if ($('body').data('page') === 'store') {
         setupStoreEvents();
+        if (window.location.hash === '#cartPanel' || window.location.hash === '#cart') {
+            setTimeout(function () {
+                const $cartPanel = $('#cartPanel');
+                if ($cartPanel.length > 0) {
+                    $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
     }
 
     const $form = $("#newsletterForm");

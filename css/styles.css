@@ -33,6 +33,10 @@
     --error-text: #991b1b;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Global Resets & Base Typography */
 
 * {
