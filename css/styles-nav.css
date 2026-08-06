@@ -40,4 +40,28 @@ footer {
 .top-nav a.cart-icon {
     float: right;
     font-size: 18px;
+    position: relative;
+}
+
+.nav-cart-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: var(--accent-gold, #D49A54);
+    color: #000;
+    font-weight: 700;
+    min-width: 18px;
+    height: 18px;
+    line-height: 18px;
+    padding: 0 4px;
+    border-radius: 999px;
+    font-size: 11px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    pointer-events: none;
+    display: inline-block;
+}
+
+.nav-cart-badge.hidden {
+    display: none !important;
 }
