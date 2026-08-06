@@ -264,6 +264,11 @@ $(document).ready(function () {
 
         saveCart(cart);
         renderCart();
+
+        const $cartPanel = $('#cartPanel');
+        if ($cartPanel.length > 0) {
+            $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function removeFromCart(productId) {
@@ -299,6 +304,22 @@ $(document).ready(function () {
         });
 
         $('#clearCartBtn').on('click', function () {
+            clearCart();
+        });
+
+        $('#checkoutBtn').on('click', function () {
+            const cart = getStoredCart();
+            const cartCount = getCartItemCount(cart);
+
+            if (cartCount === 0) {
+                alert("Your cart is empty! Please add some merch before checking out.");
+                return;
+            }
+
+            const total = formatPrice(getCartTotal(cart));
+            const confirmMsg = `Thank you for your order!\n\nThis is a demonstration.\n\nTotal Items: ${cartCount}\nOrder Total: ${total}\n\nYour test checkout has completed successfully.`;
+
+            alert(confirmMsg);
             clearCart();
         });
     }

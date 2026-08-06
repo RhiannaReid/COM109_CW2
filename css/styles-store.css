@@ -240,17 +240,52 @@
 .cart-actions {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .button-secondary {
-    background-color: transparent;
-    color: var(--text-dark);
-    border: 1px solid var(--input-border);
+    background-color: transparent !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text-dark) !important;
+    height: 42px !important;
+    padding: 0 16px !important;
+    font-size: 0.95rem !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    position: static !important;
+    width: auto !important;
 }
 
 .button-secondary:hover {
-    background-color: #f4f3ef;
+    background-color: rgba(0, 0, 0, 0.05) !important;
 }
+
+.checkout-btn {
+    background-color: var(--accent-forest) !important;
+    color: #ffffff !important;
+    height: 42px !important;
+    padding: 0 24px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    position: static !important;
+    width: auto !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.checkout-btn:hover {
+    background-color: var(--accent-gold) !important;
+    color: #000000 !important;
+}
+
+
 
 .empty-cart {
     padding: 1.5rem;
