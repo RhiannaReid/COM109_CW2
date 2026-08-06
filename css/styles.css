@@ -90,6 +90,29 @@ a {
     font-size: 18px;
 }
 
+/* Cart badge shown in header near cart icon */
+.top-nav a.cart-icon {
+    position: relative;
+}
+
+.nav-cart-badge {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    background-color: var(--accent-gold);
+    color: #000;
+    font-weight: 700;
+    padding: 4px 7px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.nav-cart-badge.hidden {
+    display: none;
+}
+
 /* Shared Hero Banner */
 
 .hero-image {

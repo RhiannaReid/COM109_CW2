@@ -39,9 +39,10 @@ $(document).ready(function () {
         $siteHeader.html(`
             <div class="top-nav">
                 ${navHtml}
-                <a href="#" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
+                    <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
+                    </a>
             </div>
         `);
     }
@@ -59,9 +60,218 @@ $(document).ready(function () {
             </footer>
         `);
     }
+    //======= Things for j Query w/header and footer - Daniel =====
 
+    function getStoredCart() {
+        const savedCart = localStorage.getItem('halcyonCart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    }
+
+    function saveCart(cart) {
+        localStorage.setItem('halcyonCart', JSON.stringify(cart));
+    }
+
+    function formatPrice(value) {
+        return `£${value.toFixed(2)}`;
+    }
+
+    const storeProducts = [
+        {
+            id: 'album-vinyl',
+            title: 'Halcyon Vinyl Album',
+            description: 'A collectible vinyl record with exclusive artwork... chance to be signed by a band member!',
+            price: 24.99,
+            label: 'Vinyl'
+        },
+        {
+            id: 'hoodie-black',
+            title: 'Halcyon Hoodie',
+            description: 'Comfortable black hoodie with the band logo',
+            price: 39.99,
+            label: 'Hoodie'
+        },
+        {
+            id: 'tshirt-cream',
+            title: 'Halcyon T-Shirt',
+            description: 'Soft, cream-coloured tee with a vintage design',
+            price: 19.99,
+            label: 'T-Shirt'
+        },
+        {
+            id: 'poster-set',
+            title: 'Pack of 3 Posters',
+            description: 'Set of 3 limited edition posters for your wall',
+            price: 14.99,
+            label: 'Poster'
+        },
+        {
+            id: 'cap-olive',
+            title: 'Halcyon Hat',
+            description: 'Olive baseball cap with embroidered logo',
+            price: 16.99,
+            label: 'Cap'
+        },
+        {
+            id: 'sticker-bundle',
+            title: 'Sticker Bundle',
+            description: 'Collection of 8 band stickers for your gear',
+            price: 7.99,
+            label: 'Stickers'
+        }
+    ];
+
+    function renderProductGrid() {
+        const $productGrid = $('#productGrid');
+        if (!$productGrid.length) {
+            return;
+        }
+
+        const productHtml = storeProducts.map(function (product) {
+            return `
+                <article class="product-card">
+                    <div class="product-image">
+                        <div>
+                            <strong>${product.label}</strong>
+                            <p>${product.title}</p>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-footer">
+                            <span class="product-price">${formatPrice(product.price)}</span>
+                            <button type="button" class="button product-add-btn" data-product-id="${product.id}">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        $productGrid.html(productHtml);
+    }
+
+    function getCartItemCount(cart) {
+        return cart.reduce(function (count, item) {
+            return count + item.quantity;
+        }, 0);
+    }
+
+    function getCartTotal(cart) {
+        return cart.reduce(function (total, item) {
+            return total + item.price * item.quantity;
+        }, 0);
+    }
+
+    function renderCart() {
+        const $cartItems = $('#cartItems');
+        const $cartCount = $('#cartCount');
+        const $cartTotal = $('#cartTotal');
+        const cart = getStoredCart();
+            const $navBadge = $('#navCartBadge');
+
+            // Update header badge (total quantity of items)
+            const cartCount = getCartItemCount(cart);
+            if ($navBadge.length) {
+                if (cartCount > 0) {
+                    $navBadge.text(cartCount).removeClass('hidden');
+                } else {
+                    $navBadge.addClass('hidden');
+                }
+            }
+
+        if (!$cartItems.length || !$cartCount.length || !$cartTotal.length) {
+            return;
+        }
+
+        if (cart.length === 0) {
+            $cartItems.html('<div class="empty-cart">Your cart is empty. Add a few items to see them here.</div>');
+        } else {
+            const cartHtml = cart.map(function (item) {
+                return `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <p class="cart-item-name">${item.title}</p>
+                            <p class="cart-item-meta">${item.quantity} × ${formatPrice(item.price)}</p>
+                        </div>
+                        <div class="cart-item-actions">
+                            <span class="cart-item-qty">${formatPrice(item.price * item.quantity)}</span>
+                            <button type="button" class="cart-item-remove" data-product-id="${item.id}">Remove</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            $cartItems.html(cartHtml);
+        }
+
+        $cartCount.text(`${cartCount} item${cartCount === 1 ? '' : 's'}`);
+        $cartTotal.text(formatPrice(getCartTotal(cart)));
+    }
+
+    function addToCart(productId) {
+        const product = storeProducts.find(function (item) {
+            return item.id === productId;
+        });
+        if (!product) {
+            return;
+        }
+
+        const cart = getStoredCart();
+        const existing = cart.find(function (item) {
+            return item.id === productId;
+        });
+
+        if (existing) {
+            existing.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+
+        saveCart(cart);
+        renderCart();
+    }
+
+    function removeFromCart(productId) {
+        let cart = getStoredCart();
+        cart = cart.filter(function (item) {
+            return item.id !== productId;
+        });
+        saveCart(cart);
+        renderCart();
+    }
+
+    function clearCart() {
+        localStorage.removeItem('halcyonCart');
+        renderCart();
+    }
+
+    function setupStoreEvents() {
+        renderProductGrid();
+        renderCart();
+
+        $('#productGrid').on('click', '.product-add-btn', function () {
+            const productId = $(this).data('product-id');
+            addToCart(productId);
+        });
+
+        $('#cartItems').on('click', '.cart-item-remove', function () {
+            const productId = $(this).data('product-id');
+            removeFromCart(productId);
+        });
+
+        $('#clearCartBtn').on('click', function () {
+            clearCart();
+        });
+    }
+// ======== bits and bobs for the shop - Daniel ========
     renderHeader();
     renderFooter();
+    // Ensure header cart badge is in sync on all pages
+    renderCart();
+
+    if ($('body').data('page') === 'store') {
+        setupStoreEvents();
+    }
 
     const $form = $("#newsletterForm");
     const $fullName = $("#fullName");

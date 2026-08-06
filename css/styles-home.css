@@ -12,7 +12,51 @@ body, html {
     padding: 80px 30px;
 }
 
-.welcome-heading {
-    text-align: center;
-    padding-top: 40px;
+.button {
+  background-color: #D49A54;
+  border: none;
+  color: black;
+  font-family: 'Marcellus', serif;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+  border-radius: 16px;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+  display: block;
 }
+
+.button:hover {
+    background-color: #146FA1;
+    color: black;
+}
+
+.scroll-container {
+  background-color: #182825;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.scroll-container img {
+  padding: 10px;
+  max-width: 50%;
+  max-height: 50%;
+  height: auto;
+}
+
+/* .parallax {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
+    height: 85%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
