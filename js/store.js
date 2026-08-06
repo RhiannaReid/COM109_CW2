@@ -66,7 +66,7 @@ function renderProductGrid() {
                     <p class="product-description">${product.description}</p>
                     <div class="product-footer">
                         <span class="product-price">${formatPrice(product.price)}</span>
-                        <button type="button" class="button product-add-btn" data-product-id="${product.id}">Add to Cart</button>
+                        <button type="button" class="button product-add-btn" data-product-id="${product.id}" aria-label="Add ${product.title} to cart">Add to Cart</button>
                     </div>
                 </div>
             </article>

@@ -116,7 +116,7 @@ function renderCart() {
                     </div>
                     <div class="cart-item-actions">
                         <span class="cart-item-qty">${formatPrice(item.price * item.quantity)}</span>
-                        <button type="button" class="cart-item-remove" data-product-id="${item.id}">Remove</button>
+                        <button type="button" class="cart-item-remove" data-product-id="${item.id}" aria-label="Remove ${item.title} from cart">Remove</button>
                     </div>
                 </div>
             `;
