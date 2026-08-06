@@ -37,38 +37,61 @@ $(document).ready(function () {
         }).join("");
 
         $siteHeader.html(`
-            <div class="top-nav">
+            <nav class="top-nav" aria-label="Main Navigation">
                 ${navHtml}
-                    <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
-                    </a>
-            </div>
+                <a href="store.html#cartPanel" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
+                </a>
+            </nav>
         `);
     }
 
     function renderFooter() {
         $siteFooter.html(`
-            <footer>
-                <br>
-                <br>
-                <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
-                <p><b>Instagram: </b> @halcyonband</p>
-                <p><b>Email: </b> info@halcyonband.com</p>
-                <p><b>Phone: </b> +44 1234 567890</p>
-                <p>&copy; 2026 Halcyon. All rights reserved.</p>
-            </footer>
+            <br>
+            <br>
+            <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
+            <p><b>Instagram: </b> @halcyonband</p>
+            <p><b>Email: </b> info@halcyonband.com</p>
+            <p><b>Phone: </b> +44 1234 567890</p>
+            <p>&copy; 2026 Halcyon. All rights reserved.</p>
         `);
     }
     //======= Things for j Query w/header and footer - Daniel =====
 
+    let inMemoryCart = null;
+
     function getStoredCart() {
-        const savedCart = localStorage.getItem('halcyonCart');
-        return savedCart ? JSON.parse(savedCart) : [];
+        if (inMemoryCart !== null && Array.isArray(inMemoryCart) && inMemoryCart.length > 0) {
+            return inMemoryCart;
+        }
+
+        try {
+            const savedCart = localStorage.getItem('halcyonCart') || sessionStorage.getItem('halcyonCart');
+            if (savedCart) {
+                const parsed = JSON.parse(savedCart);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    inMemoryCart = parsed;
+                    return parsed;
+                }
+            }
+        } catch (e) {
+            console.warn('Storage access warning:', e);
+        }
+
+        return inMemoryCart || [];
     }
 
     function saveCart(cart) {
-        localStorage.setItem('halcyonCart', JSON.stringify(cart));
+        inMemoryCart = Array.isArray(cart) ? cart : [];
+        try {
+            const jsonStr = JSON.stringify(inMemoryCart);
+            localStorage.setItem('halcyonCart', jsonStr);
+            sessionStorage.setItem('halcyonCart', jsonStr);
+        } catch (e) {
+            console.warn('Storage save warning:', e);
+        }
     }
 
     function formatPrice(value) {
@@ -151,33 +174,45 @@ $(document).ready(function () {
     }
 
     function getCartItemCount(cart) {
+        if (!Array.isArray(cart)) return 0;
         return cart.reduce(function (count, item) {
-            return count + item.quantity;
+            const qty = Number(item.quantity !== undefined ? item.quantity : (item.qty !== undefined ? item.qty : 1));
+            return count + (isNaN(qty) ? 1 : qty);
         }, 0);
     }
 
     function getCartTotal(cart) {
+        if (!Array.isArray(cart)) return 0;
         return cart.reduce(function (total, item) {
-            return total + item.price * item.quantity;
+            const qty = Number(item.quantity !== undefined ? item.quantity : (item.qty !== undefined ? item.qty : 1));
+            const price = Number(item.price || 0);
+            return total + (price * (isNaN(qty) ? 1 : qty));
         }, 0);
     }
 
+    function updateNavCartBadge() {
+        const cart = getStoredCart();
+        const cartCount = getCartItemCount(cart);
+        const $navBadges = $('#navCartBadge, #cartBadge, .nav-cart-badge, .cart-badge');
+
+        if ($navBadges.length) {
+            $navBadges.text(cartCount);
+            if (cartCount > 0) {
+                $navBadges.removeClass('hidden');
+            } else {
+                $navBadges.addClass('hidden');
+            }
+        }
+    }
+
     function renderCart() {
+        updateNavCartBadge();
+
         const $cartItems = $('#cartItems');
         const $cartCount = $('#cartCount');
         const $cartTotal = $('#cartTotal');
         const cart = getStoredCart();
-            const $navBadge = $('#navCartBadge');
-
-            // Update header badge (total quantity of items)
-            const cartCount = getCartItemCount(cart);
-            if ($navBadge.length) {
-                if (cartCount > 0) {
-                    $navBadge.text(cartCount).removeClass('hidden');
-                } else {
-                    $navBadge.addClass('hidden');
-                }
-            }
+        const cartCount = getCartItemCount(cart);
 
         if (!$cartItems.length || !$cartCount.length || !$cartTotal.length) {
             return;
@@ -222,13 +257,18 @@ $(document).ready(function () {
         });
 
         if (existing) {
-            existing.quantity += 1;
+            existing.quantity = (Number(existing.quantity) || 1) + 1;
         } else {
-            cart.push({ ...product, quantity: 1 });
+            cart.push(Object.assign({}, product, { quantity: 1 }));
         }
 
         saveCart(cart);
         renderCart();
+
+        const $cartPanel = $('#cartPanel');
+        if ($cartPanel.length > 0) {
+            $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function removeFromCart(productId) {
@@ -241,7 +281,11 @@ $(document).ready(function () {
     }
 
     function clearCart() {
-        localStorage.removeItem('halcyonCart');
+        inMemoryCart = [];
+        try {
+            localStorage.removeItem('halcyonCart');
+            sessionStorage.removeItem('halcyonCart');
+        } catch (e) {}
         renderCart();
     }
 
@@ -262,6 +306,22 @@ $(document).ready(function () {
         $('#clearCartBtn').on('click', function () {
             clearCart();
         });
+
+        $('#checkoutBtn').on('click', function () {
+            const cart = getStoredCart();
+            const cartCount = getCartItemCount(cart);
+
+            if (cartCount === 0) {
+                alert("Your cart is empty! Please add some merch before checking out.");
+                return;
+            }
+
+            const total = formatPrice(getCartTotal(cart));
+            const confirmMsg = `Thank you for your order!\n\nThis is a demonstration.\n\nTotal Items: ${cartCount}\nOrder Total: ${total}\n\nYour test checkout has completed successfully.`;
+
+            alert(confirmMsg);
+            clearCart();
+        });
     }
 // ======== bits and bobs for the shop - Daniel ========
     renderHeader();
@@ -269,8 +329,33 @@ $(document).ready(function () {
     // Ensure header cart badge is in sync on all pages
     renderCart();
 
-    if ($('body').data('page') === 'store') {
+    // Listen for storage updates across tabs/windows
+    window.addEventListener('storage', function (e) {
+        if (e.key === 'halcyonCart') {
+            inMemoryCart = null;
+            renderCart();
+        }
+    });
+
+    $(document).on('click', '.cart-icon', function (e) {
+        const $cartPanel = $('#cartPanel');
+        if ($cartPanel.length > 0) {
+            e.preventDefault();
+            $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+
+    const currentPage = $('body').attr('data-page') || '';
+    if (currentPage === 'store') {
         setupStoreEvents();
+        if (window.location.hash === '#cartPanel' || window.location.hash === '#cart') {
+            setTimeout(function () {
+                const $cartPanel = $('#cartPanel');
+                if ($cartPanel.length > 0) {
+                    $cartPanel[0].scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
     }
 
     const $form = $("#newsletterForm");

@@ -127,6 +127,26 @@ footer {
     padding: 80px 30px;
 }
 
+.hero-image .button {
+  background-color: #D49A54;
+  border: none;
+  color: black;
+  font-family: 'Marcellus', serif;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+  border-radius: 16px;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+}
+
 .button {
   background-color: #D49A54;
   border: none;
@@ -139,7 +159,6 @@ footer {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 50%;
   cursor: pointer;
   border-radius: 16px;
   height: 50px;

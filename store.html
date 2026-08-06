@@ -18,11 +18,11 @@
 </head>
 
 <body data-page="store">
-    <div class="top-nav" id="siteHeader"></div>
+    <header id="siteHeader"></header>
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size: 8vw;">Halcyon Shop</h1>
+            <h1 style="font-size: 8vw; text-wrap: nowrap;">Halcyon Shop</h1>
             <p style="font-size: 2vw;">Bring home the band with merch and music.</p>
         </div>
     </div>
@@ -51,12 +51,15 @@
                 </div>
                 <div class="cart-actions">
                     <button type="button" id="clearCartBtn" class="button button-secondary">Clear Cart</button>
+                    <button type="button" id="checkoutBtn" class="button checkout-btn">
+                        <i class="fa-solid fa-lock"></i> Checkout
+                    </button>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="siteFooter"></div>
+    <footer id="siteFooter"></footer>
 
     <script src="js/main.js"></script>
 </body>
