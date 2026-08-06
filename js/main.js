@@ -37,27 +37,25 @@ $(document).ready(function () {
         }).join("");
 
         $siteHeader.html(`
-            <div class="top-nav">
+            <nav class="top-nav" aria-label="Main Navigation">
                 ${navHtml}
-                    <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
-                    </a>
-            </div>
+                <a href="store.html" class="cart-icon" aria-label="Shopping Cart" title="Shopping Cart">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="navCartBadge" class="nav-cart-badge hidden">0</span>
+                </a>
+            </nav>
         `);
     }
 
     function renderFooter() {
         $siteFooter.html(`
-            <footer>
-                <br>
-                <br>
-                <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
-                <p><b>Instagram: </b> @halcyonband</p>
-                <p><b>Email: </b> info@halcyonband.com</p>
-                <p><b>Phone: </b> +44 1234 567890</p>
-                <p>&copy; 2026 Halcyon. All rights reserved.</p>
-            </footer>
+            <br>
+            <br>
+            <p><b>Follow us on social media and stay up to date with our latest news and events!</b></p>
+            <p><b>Instagram: </b> @halcyonband</p>
+            <p><b>Email: </b> info@halcyonband.com</p>
+            <p><b>Phone: </b> +44 1234 567890</p>
+            <p>&copy; 2026 Halcyon. All rights reserved.</p>
         `);
     }
     //======= Things for j Query w/header and footer - Daniel =====
