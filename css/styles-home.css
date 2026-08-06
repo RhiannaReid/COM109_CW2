@@ -103,6 +103,20 @@ footer {
     color: black;
 }
 
+.scroll-container {
+  background-color: #182825;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.scroll-container img {
+  padding: 10px;
+  max-width: 50%;
+  max-height: 50%;
+  height: auto;
+}
+
 /* .parallax {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
     height: 85%;
