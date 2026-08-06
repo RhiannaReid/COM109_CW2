@@ -3,7 +3,16 @@ function openSpotify() {
 }
 
 // ------------------------ rhianna ^ --------------------------------------------------------------- adam v -----------------
+// Email regex
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.trim());
+}
 
+function isFullNameValid(name){
+	const isValid = name.length >= 2;
+	return isValid
+}
 
 $(document).ready(function () {
     const $siteHeader = $("#siteHeader");
@@ -12,7 +21,7 @@ $(document).ready(function () {
     function getNavItems() {
         return [
             { href: "index.html", label: "Home", page: "home" },
-            { href: "events.html", label: "Events", page: "events" },
+            { href: "UpcomingEvents.html", label: "Events", page: "events" },
             { href: "about.html", label: "About Us", page: "about" },
             { href: "store.html", label: "Store", page: "store" },
             { href: "newsletter.html", label: "Newsletter", page: "newsletter" },
@@ -276,12 +285,6 @@ $(document).ready(function () {
     const $errorSummary = $("#formErrorSummary");
     const $errorList = $("#errorList");
 
-    // Email regex
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email.trim());
-    }
-
     // Helper functions for field states
     function setFieldState($input, isValid, $errorElem, errorText) {
         const $container = $input.closest(".input-container").length ? $input.closest(".input-container") : $input.closest("div");
@@ -308,7 +311,7 @@ $(document).ready(function () {
     // Individual Field Validators
     function validateFullName() {
         const value = $fullName.val().trim();
-        const isValid = value.length >= 2;
+        const isValid = isFullNameValid(value);
 
         return setFieldState($fullName, isValid, $("#fullNameError"), "Full Name must be at least 2 characters.");
     }
@@ -440,3 +443,153 @@ $(document).ready(function () {
         }
     });
 });
+
+/*--------------------------------------- rebecca v -----------------*/
+
+
+// Initialising a list of tour dates
+const tourDatesUrl = "json/tourDates.json";
+let tourDates = [];
+
+const eventContainer = document.querySelector(".tour_dates_wrapper");
+const filterEvents = document.querySelectorAll("li button");
+const searchBar = document.querySelector(".btn_search");
+const searchInput = document.querySelector(".event_search");
+const waitlistSelect = document.getElementById("selectEvent");
+
+// display dynamic data
+window.addEventListener('DOMContentLoaded',()=>{
+    loadTourDates();
+});
+
+async function loadTourDates() {
+    try {
+        const response = await fetch(tourDatesUrl);
+        if (!response.ok) {
+            throw new Error(`Unable to load tour dates: ${response.status} ${response.statusText}`);
+        }
+
+        tourDates = await response.json();
+
+        if (eventContainer) {
+            displayEventData(tourDates);
+        }
+
+        if (waitlistSelect) {
+            populateWaitlistDropdown(tourDates);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+// searching events
+if(searchBar)
+{
+	searchBar.addEventListener('click', (e)=>{
+		let searchValue=searchInput.value;
+		
+		if(searchValue != ""){
+			let searchEvent = tourDates.filter(function(eventData){
+				if(eventData.eventTitle.includes(searchValue)){
+					return eventData;
+				};
+			});
+			
+			displayEventData(searchEvent);
+		} else {
+			alert("Invalid search. Please enter the event you are searching for.");
+		};
+	});
+}
+
+// filtering events
+filterEvents.forEach((filters)=>{
+	filters.addEventListener('click',(e)=>{
+		const eventLocation = e.target.dataset.id;
+		const eventCategory = tourDates.filter(function(filt){
+			if(filt.category === eventLocation){
+					return filt;
+			};
+		});
+		
+		if(eventLocation === "All Locations"){
+			displayEventData(tourDates);
+		} else {
+			displayEventData(eventCategory);
+		};
+	});
+});
+
+
+// defining a function to format and display tour events
+function displayEventData(tourDates){
+	let displayData = tourDates.map(function(event_items){
+		return `
+			  <tr>
+				<td>${event_items.eventDate}</td>
+				<td>${event_items.eventTitle}</td>
+				<td><a href="${event_items.locationURL}">${event_items.eventLocation}</a></td>
+				<td><input type="button" onclick="location.href='${event_items.statusURL}';" value="${event_items.eventStatus}"></td>
+			  </tr>
+			`;
+	}).join("");
+	eventContainer.innerHTML=displayData;
+};
+
+// defining a function to filter and display tour event titles for the waitlist dropdown
+function populateWaitlistDropdown(events){
+	events.forEach(event_item => {
+		if(event_item.eventStatus === "Join Waitlist"){
+			console.log("Adding option:", event_item.eventTitle);
+			const option = document.createElement("option");
+			option.value = event_item.id;
+			option.textContent = event_item.eventTitle;
+			waitlistSelect.appendChild(option);
+		};
+	});
+};
+
+// form validation
+const formSubmission = document.getElementById("waitlist-form");
+
+if (formSubmission) {
+    formSubmission.addEventListener("submit", function (event) {
+        const email = document.getElementById("email-address");
+        const fullName = document.getElementById("full-name");
+		
+		// Clear any previous custom validity before re-checking
+        email.setCustomValidity("");
+        fullName.setCustomValidity("");
+
+        const emailValid = isValidEmail(email.value);
+        const nameValid = isFullNameValid(fullName.value);
+
+        console.log("Check 1");
+        email.setCustomValidity(emailValid ? "" : "Please enter a valid email address.");
+        console.log("Check 2");
+        fullName.setCustomValidity(nameValid ? "" : "Please enter your full name.");
+        console.log("Email valid:", emailValid);
+        console.log("Name valid:", nameValid);
+
+        // Stop form submission if ANY field is invalid
+        if (!emailValid) {
+            event.preventDefault();
+			this.reportValidity();
+            console.log("Check 3");
+        }
+        if (!nameValid) {
+            event.preventDefault();
+            console.log("Check 4");
+			this.reportValidity();
+        }
+    });
+	
+	document.getElementById("email-address").addEventListener("input", function () {
+        this.setCustomValidity("");
+    });
+    document.getElementById("full-name").addEventListener("input", function () {
+        this.setCustomValidity("");
+    });
+}
+

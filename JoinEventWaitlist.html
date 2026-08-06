@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Halcyon - Waitlist</title>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="js/main.js" defer></script>
+
+		<link rel="stylesheet" href="css/styles-events.css">
+		<link rel="stylesheet" type="text/css" href="css/styles-nav.css">
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/styles-newsletter.css">
+		
+		<link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet'>
+	</head>
+	<body>
+		<div class="top-nav" id="siteHeader"></div>
+		<div class="concert-image-v2">
+            <div class="hero-text">
+				<h1 style="font-size: 8vw;">Join Waitlist</h1>
+            </div>
+        </div>
+
+		<main class="main-content">
+			<div class="form-wrapper">
+				<div class="form-card">
+					<form id="waitlistForm" name="waitlist-form" class="newsletter-form" novalidate>
+						<div class="form-header">
+							<h2 class="form-title">Join Our Waitlist</h2>
+							<p class="form-subtitle">Don't miss out if extra tickets become available!</p>
+						</div>
+
+						<fieldset class="form-fieldset">
+							<legend class="form-legend">01. Contact Details</legend>
+
+							<div class="form-grid-2">
+								<div class="form-group">
+									<label for="fullName" class="form-label">Full Name <span class="text-required">*</span></label>
+									<div class="input-container">
+										<input type="text" id="fullName" name="fullName" class="form-input" placeholder="e.g. John Doe" required aria-required="true" aria-describedby="fullNameError">
+									</div>
+									<p id="fullNameError" class="error-msg hidden">Enter your full name.</p>
+								</div>
+
+								<div class="form-group">
+									<label for="email" class="form-label">Email Address <span class="text-required">*</span></label>
+									<div class="input-container">
+										<input type="email" id="email" name="email" class="form-input" placeholder="johndoe@example.com" required aria-required="true" aria-describedby="emailError">
+									</div>
+									<p id="emailError" class="error-msg hidden">Enter a valid email address.</p>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="selectEvent" class="form-label">Select Waitlisted Event <span class="text-required">*</span></label>
+								<div class="input-container">
+									<select id="selectEvent" name="selectEvent" class="form-select" required aria-required="true" aria-describedby="eventError">
+										<!-- Event Titles from JavaScript -->
+									</select>
+									<svg class="select-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+									</svg>
+								</div>
+								<p id="eventError" class="error-msg hidden">Please select an event.</p>
+							</div>
+						</fieldset>
+
+						<fieldset class="form-fieldset">
+							<button type="submit" id="submitBtn" class="submit-btn">
+								<span>JOIN WAITLIST</span>
+							</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</main>
+
+		<div id="siteFooter"></div>
+	</body>
+</html>

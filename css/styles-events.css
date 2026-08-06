@@ -1,0 +1,121 @@
+.search-filter{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -10%);
+	justify-content: center;
+}
+
+.filter-event-buttons li {
+	width: 100%;
+    display: inline;
+	align-items:center;
+}
+
+.search-event-button{
+	width: 100%;
+	text-align: center;
+}
+
+.display-events{
+	width: 90%;
+	margin:auto;
+}
+
+.events{
+	align-items: center;
+}
+
+.tour-dates-table {
+	margin:auto;
+    border-collapse: separate;
+    border-spacing: 0 2rem; /* horizontal vertical */
+}
+
+.tour-dates-table td {
+	padding:1rem;
+}
+
+.concert-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
+    height: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+	filter: sepia(60%);
+}
+
+.concert-image-v2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/hero-image-v3.png");
+    height: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.waitlist-form{
+	display: inline;
+	align-items:center;
+}
+
+.select-event{
+	border-radius: 12px;
+	height: 25px;
+	width: 200px;
+	display: inline;
+	align-items:center;
+	font-family: 'Marcellus', serif;
+}
+
+input[type="button"] {
+  background-color: #D49A54;
+  border: none;
+  color: black;
+  font-family: 'Marcellus', serif;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+  border-radius: 16px;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+  display: block;
+}
+
+input[type="button"]:hover {
+  background-color: #146FA1;
+    color: black;
+}
+
+/*Waitlist submit button*/
+.button {
+    background-color: var(--accent-gold);
+    color: #000000;
+    font-family: var(--font-marcellus);
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 16px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.button:hover {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}

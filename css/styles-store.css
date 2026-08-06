@@ -5,7 +5,7 @@
 /* Store page layout */
 .main-content {
     max-width: 1200px;
-    margin: -420px auto 4rem auto;
+    margin: -300px auto 4rem auto;
     padding: 0 1.5rem 4rem 1.5rem;
     position: relative;
     z-index: 10;
