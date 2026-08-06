@@ -152,17 +152,21 @@ a {
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.hero-image .button {
     display: block;
     margin-left: auto;
     margin-right: auto;
     position: relative;
     top: 50%;
-    cursor: pointer;
-    border-radius: 16px;
     height: 50px;
     width: 200px;
     font-size: 20px;
-    transition: background-color 0.2s ease;
 }
 
 .button:hover {

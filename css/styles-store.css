@@ -93,21 +93,40 @@
 
 .product-footer {
     margin-top: auto;
+    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+    border-top: 1px solid var(--divider-color, #c0c4b8);
 }
 
 .product-price {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-forest);
 }
 
 .product-add-btn {
-    width: 100%;
-    margin-top: 0.75rem;
+    position: static;
+    top: auto;
+    margin: 0;
+    width: auto;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-gold);
+    color: #000000;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.product-add-btn:hover {
+    background-color: var(--accent-forest);
+    color: #ffffff;
 }
 
 .cart-panel {
