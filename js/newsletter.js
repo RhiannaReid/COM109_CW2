@@ -1,8 +1,72 @@
-// Fan Newsletter Form Validation & Countdown Module
+// Fan Newsletter Form Validation, LocalStorage Subscription & Countdown Module
+
+function getSubscriptionData() {
+    try {
+        const saved = localStorage.getItem('halcyonNewsletterSubscribed') || sessionStorage.getItem('halcyonNewsletterSubscribed');
+        if (saved) {
+            return JSON.parse(saved);
+        }
+    } catch (e) {
+        console.warn('Subscription storage access error:', e);
+    }
+    return null;
+}
+
+function saveSubscriptionData(data) {
+    try {
+        const jsonStr = JSON.stringify(data);
+        localStorage.setItem('halcyonNewsletterSubscribed', jsonStr);
+        sessionStorage.setItem('halcyonNewsletterSubscribed', jsonStr);
+    } catch (e) {
+        console.warn('Subscription storage save error:', e);
+    }
+}
+
+function removeSubscriptionData() {
+    try {
+        localStorage.removeItem('halcyonNewsletterSubscribed');
+        sessionStorage.removeItem('halcyonNewsletterSubscribed');
+    } catch (e) {}
+}
+
+function renderSubscribedState($form, subData) {
+    $form.html(`
+        <div class="subscribed-card">
+            <div class="subscribed-header">
+                <i class="fa-solid fa-circle-check subscribed-icon"></i>
+                <h2 class="form-title">You are Subscribed!</h2>
+            </div>
+            <p class="subscribed-text">
+                Welcome back, <strong>${subData.name || 'Fan'}</strong>! You are currently subscribed to the Halcyon Fan Newsletter with <strong class="text-primary">${subData.email}</strong>.
+            </p>
+            <p class="subscribed-subtext">
+                You'll receive exclusive band news, tour dates, and early merch drops straight to your inbox.
+            </p>
+            <div class="subscribed-actions">
+                <button type="button" id="unsubscribeBtn" class="button button-unsubscribe">
+                    <i class="fa-solid fa-bell-slash"></i> Unsubscribe from Newsletter
+                </button>
+            </div>
+        </div>
+    `);
+
+    $("#unsubscribeBtn").on("click", function () {
+        removeSubscriptionData();
+        alert("You have been unsubscribed from the Halcyon Fan Newsletter.");
+        window.location.reload();
+    });
+}
 
 function initNewsletterPage() {
     const $form = $("#newsletterForm");
     if (!$form.length) return;
+
+    // Check if user is already subscribed in localStorage
+    const existingSub = getSubscriptionData();
+    if (existingSub && existingSub.email) {
+        renderSubscribedState($form, existingSub);
+        return;
+    }
 
     const $fullName = $("#fullName");
     const $email = $("#email");
@@ -135,13 +199,22 @@ function initNewsletterPage() {
             });
 
             $errorSummary.removeClass("hidden");
-            
+
             if ($errorSummary.length && $errorSummary[0].scrollIntoView) {
                 $errorSummary[0].scrollIntoView({ behavior: "smooth", block: "center" });
             }
         } else {
             $errorSummary.addClass("hidden");
-            const userEmail = $email.val();
+            const userName = $fullName.val().trim();
+            const userEmail = $email.val().trim();
+
+            // Save subscription into localStorage
+            saveSubscriptionData({
+                name: userName,
+                email: userEmail,
+                subscribedAt: new Date().toISOString()
+            });
+
             let secondsLeft = 10;
 
             $form.html(`
