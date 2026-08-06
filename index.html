@@ -1,20 +1,15 @@
 <!DOCTYPE html>
     <head> 
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script src="js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/styles-nav.css">
         <link rel="stylesheet" type="text/css" href="css/styles-home.css">
         <title> Halcyon Home </title>
         <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
         <link href='https://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet'>
     </head>
-    <body>
-        <div class = "top-nav">
-            <a class = "active" href="index.html"> Home </a>
-            <a href="index.html"> News </a>
-            <a href="events.html"> Events </a>
-            <a href="about.html"> About Us </a>
-            <a href="merch.html"> Merch </a>
-            <a href="contact.html"> Contact </a>
-        </div>
+    <body data-page="home">
+        <div class="top-nav" id="siteHeader"></div>
         <div class = "hero-image">
             <div class = "hero-text">
                 <h1 style = "font-size: 8vw;"> Halcyon </h1>
@@ -45,11 +40,5 @@
                     <img src="images/concert-6.jpg" alt="Florence Concert 2024">
                 </div>
     </body> 
-    <footer>
-        <br> <br> <p> <b>Follow us on social media and stay up to date with our latest news and events! </b> </p>
-        <p> <b> Instagram: </b> @halcyonband </p> 
-        <p> <b> Email: </b> info@halcyonband.com </p>
-        <p> <b> Phone: </b> (555) 555-5555 </p>
-        <p> &copy; 2021 Halcyon. All rights reserved. </p>
-    </footer>
+    <div id="siteFooter"></div>
 </html>
