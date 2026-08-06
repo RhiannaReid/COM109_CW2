@@ -5,7 +5,7 @@
 /* Store page layout */
 .main-content {
     max-width: 1200px;
-    margin: -420px auto 4rem auto;
+    margin: -300px auto 4rem auto;
     padding: 0 1.5rem 4rem 1.5rem;
     position: relative;
     z-index: 10;
@@ -93,21 +93,40 @@
 
 .product-footer {
     margin-top: auto;
+    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.75rem;
+    border-top: 1px solid var(--divider-color, #c0c4b8);
 }
 
 .product-price {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: var(--accent-forest);
 }
 
 .product-add-btn {
-    width: 100%;
-    margin-top: 0.75rem;
+    position: static;
+    top: auto;
+    margin: 0;
+    width: auto;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-gold);
+    color: #000000;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.product-add-btn:hover {
+    background-color: var(--accent-forest);
+    color: #ffffff;
 }
 
 .cart-panel {
@@ -221,17 +240,52 @@
 .cart-actions {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .button-secondary {
-    background-color: transparent;
-    color: var(--text-dark);
-    border: 1px solid var(--input-border);
+    background-color: transparent !important;
+    border: 1px solid var(--card-border) !important;
+    color: var(--text-dark) !important;
+    height: 42px !important;
+    padding: 0 16px !important;
+    font-size: 0.95rem !important;
+    border-radius: 8px !important;
+    margin: 0 !important;
+    position: static !important;
+    width: auto !important;
 }
 
 .button-secondary:hover {
-    background-color: #f4f3ef;
+    background-color: rgba(0, 0, 0, 0.05) !important;
 }
+
+.checkout-btn {
+    background-color: var(--accent-forest) !important;
+    color: #ffffff !important;
+    height: 42px !important;
+    padding: 0 24px !important;
+    font-size: 1rem !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    margin: 0 !important;
+    position: static !important;
+    width: auto !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s ease, transform 0.1s ease !important;
+}
+
+.checkout-btn:hover {
+    background-color: var(--accent-gold) !important;
+    color: #000000 !important;
+}
+
+
 
 .empty-cart {
     padding: 1.5rem;

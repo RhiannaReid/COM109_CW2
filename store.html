@@ -18,11 +18,11 @@
 </head>
 
 <body data-page="store">
-    <div class="top-nav" id="siteHeader"></div>
+    <header id="siteHeader"></header>
 
     <div class="hero-image">
         <div class="hero-text">
-            <h1 style="font-size: 8vw;">Halcyon Shop</h1>
+            <h1 style="font-size: 8vw; text-wrap: nowrap;">Halcyon Shop</h1>
             <p style="font-size: 2vw;">Bring home the band with merch and music.</p>
         </div>
     </div>
@@ -39,26 +39,30 @@
             <div class="cart-header">
                 <div>
                     <h2 class="cart-title">Your Cart</h2>
-                    <p class="cart-subtitle">Items added to your cart are stored locally in your browser.</p>
+                    <p class="cart-subtitle">Review your items before checking out.</p>
                 </div>
-                <span class="cart-count" id="cartCount">0 items</span>
+                <span id="cartCount" class="cart-count" aria-live="polite">0 items</span>
             </div>
-            <div id="cartItems" class="cart-items"></div>
+            <div id="cartItems" class="cart-items" aria-live="polite"></div>
             <div class="cart-footer">
                 <div class="cart-total-row">
                     <span>Total</span>
-                    <strong id="cartTotal">£0.00</strong>
+                    <strong id="cartTotal" aria-live="polite">£0.00</strong>
                 </div>
                 <div class="cart-actions">
                     <button type="button" id="clearCartBtn" class="button button-secondary">Clear Cart</button>
+                    <button type="button" id="checkoutBtn" class="button checkout-btn">
+                        <i class="fa-solid fa-lock"></i> Checkout
+                    </button>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="siteFooter"></div>
+    <footer id="siteFooter"></footer>
 
     <script src="js/main.js"></script>
+    <script src="js/store.js"></script>
 </body>
 
 </html>

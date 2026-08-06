@@ -6,7 +6,7 @@
 /* Overlapping Main Content Container */
 .main-content {
     max-width: 900px;
-    margin: -480px auto 0 auto;
+    margin: -300px auto 0 auto;
     padding: 0 1.5rem 4rem 1.5rem;
     position: relative;
     z-index: 10;

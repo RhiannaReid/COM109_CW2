@@ -8,6 +8,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/newsletter.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -19,7 +20,7 @@
 </head>
 
 <body data-page="newsletter">
-    <div class="top-nav" id="siteHeader"></div>
+    <header id="siteHeader"></header>
 
     <div class="hero-image">
         <div class="hero-text">
@@ -123,25 +124,22 @@
                         </div>
 
                         <div class="form-group">
-                            <span class="form-label">Content Interests <span class="text-required">*</span></span>
-                            <div class="checkbox-grid select-none" id="checkboxGroup">
-                                <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Gig Presales" checked
-                                        class="custom-checkbox">
+                            <span class="form-label" id="interestsLegend">Content Interests <span class="text-required">*</span></span>
+                            <div class="checkbox-grid select-none" id="checkboxGroup" role="group" aria-labelledby="interestsLegend">
+                                <label for="interest-presales" class="checkbox-card select-none">
+                                    <input type="checkbox" id="interest-presales" name="interests" value="Gig Presales" checked class="custom-checkbox">
                                     <span class="checkbox-text">Tour & Gig Presales</span>
                                 </label>
-                                <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Unreleased Demos" checked
-                                        class="custom-checkbox">
+                                <label for="interest-demos" class="checkbox-card select-none">
+                                    <input type="checkbox" id="interest-demos" name="interests" value="Unreleased Demos" checked class="custom-checkbox">
                                     <span class="checkbox-text">Studio Demos & Audio</span>
                                 </label>
-                                <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Merch Drops" class="custom-checkbox">
+                                <label for="interest-merch" class="checkbox-card select-none">
+                                    <input type="checkbox" id="interest-merch" name="interests" value="Merch Drops" class="custom-checkbox">
                                     <span class="checkbox-text">Merch & Vinyl Drops</span>
                                 </label>
-                                <label class="checkbox-card select-none">
-                                    <input type="checkbox" name="interests" value="Studio Vlogs"
-                                        class="custom-checkbox">
+                                <label for="interest-vlogs" class="checkbox-card select-none">
+                                    <input type="checkbox" id="interest-vlogs" name="interests" value="Studio Vlogs" class="custom-checkbox">
                                     <span class="checkbox-text">Backstage Vlogs</span>
                                 </label>
                             </div>
@@ -151,16 +149,14 @@
                         </div>
 
                         <div class="form-group">
-                            <span class="form-label">Frequency of Updates <span class="text-required">*</span></span>
-                            <div class="radio-group select-none">
-                                <label class="radio-label select-none">
-                                    <input type="radio" name="frequency" value="Major Updates Only" checked
-                                        class="custom-radio">
+                            <span class="form-label" id="frequencyLegend">Frequency of Updates <span class="text-required">*</span></span>
+                            <div class="radio-group select-none" role="radiogroup" aria-labelledby="frequencyLegend">
+                                <label for="freq-major" class="radio-label select-none">
+                                    <input type="radio" id="freq-major" name="frequency" value="Major Updates Only" checked class="custom-radio">
                                     <span>Major News & Tour Announcements</span>
                                 </label>
-                                <label class="radio-label select-none">
-                                    <input type="radio" name="frequency" value="Weekly Insider Digest"
-                                        class="custom-radio">
+                                <label for="freq-weekly" class="radio-label select-none">
+                                    <input type="radio" id="freq-weekly" name="frequency" value="Weekly Insider Digest" class="custom-radio">
                                     <span>Weekly Studio Digest</span>
                                 </label>
                             </div>
@@ -169,7 +165,7 @@
                         <div class="form-group">
                             <div class="textarea-header">
                                 <label for="fanMessage" class="form-label">Band Note / Song Request (Optional)</label>
-                                <span id="charCounter" class="char-counter">0 / 200</span>
+                                <span id="charCounter" class="char-counter" aria-live="polite" aria-atomic="true">0 / 200</span>
                             </div>
                             <textarea id="fanMessage" name="fanMessage" rows="3" maxlength="200" class="form-textarea"
                                 placeholder="Song request for upcoming tour or message for Halcyon..."></textarea>
@@ -178,7 +174,7 @@
 
                     <fieldset class="form-fieldset">
                         <label class="terms-label">
-                            <input type="checkbox" id="terms" name="terms" required class="custom-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required aria-required="true" aria-describedby="termsError" class="custom-checkbox">
                             <span class="terms-text">
                                 I agree to receive emails from Halcyon. I understand I can unsubscribe
                                 anytime. <span class="text-required">*</span>
@@ -197,7 +193,7 @@
         </div>
     </main>
 
-    <div id="siteFooter"></div>
+    <footer id="siteFooter"></footer>
 </body>
 
 </html>
