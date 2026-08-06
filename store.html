@@ -39,15 +39,15 @@
             <div class="cart-header">
                 <div>
                     <h2 class="cart-title">Your Cart</h2>
-                    <p class="cart-subtitle">Items added to your cart are stored locally in your browser.</p>
+                    <p class="cart-subtitle">Review your items before checking out.</p>
                 </div>
-                <span class="cart-count" id="cartCount">0 items</span>
+                <span id="cartCount" class="cart-count" aria-live="polite">0 items</span>
             </div>
-            <div id="cartItems" class="cart-items"></div>
+            <div id="cartItems" class="cart-items" aria-live="polite"></div>
             <div class="cart-footer">
                 <div class="cart-total-row">
                     <span>Total</span>
-                    <strong id="cartTotal">£0.00</strong>
+                    <strong id="cartTotal" aria-live="polite">£0.00</strong>
                 </div>
                 <div class="cart-actions">
                     <button type="button" id="clearCartBtn" class="button button-secondary">Clear Cart</button>
@@ -62,6 +62,7 @@
     <footer id="siteFooter"></footer>
 
     <script src="js/main.js"></script>
+    <script src="js/store.js"></script>
 </body>
 
 </html>

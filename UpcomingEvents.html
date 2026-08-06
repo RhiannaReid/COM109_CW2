@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Halcyon - Tour Dates</title>
 
-		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-		<script src="js/main.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Dates & Events - Halcyon</title>
+    <meta name="description" content="View upcoming tour dates, concert tickets, and waitlist options for Halcyon performances worldwide.">
 
-		<link rel="stylesheet" href="css/styles-events.css">
-		<link rel="stylesheet" type="text/css" href="css/styles-nav.css">
-		<link rel="stylesheet" type="text/css" href="css/styles.css">
-		
-		<link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-		<link href='https://fonts.googleapis.com/css?family=Marcellus' rel='stylesheet'>
-	</head>
-	
-	<body data-page="events">
-	    <header id="siteHeader"></header>
-		<div class = "hero-image">
-            <div class = "hero-text">
-				<h1 style = "font-size: 8vw;">Halcyon </h1>
-				<h2 style = "font-size: 4vw;"> Tour Dates </h2>
-            </div>
-			<div class="search-filter">
-					<form class="search-event-button">
-						<input type="search" placeholder="Search Events" class="event_search">
-						<button type="button" class="btn_search">
-							<i>Search</i>
-						</button>
-					</form>
-				<div>
-					<ul class="filter-event-buttons">
-						<li><button class="filter-button" data-id="All Locations">All Locations</button></li>
-						<li><button class="filter-button" data-id="Asia">Asia</button></li>
-						<li><button class="filter-button" data-id="Australia and Oceania">Australia and Oceania</button></li>
-						<li><button class="filter-button" data-id="Europe">Europe</button></li>
-						<li><button class="filter-button" data-id="UK and Ireland">UK and Ireland</button></li>
-						<li><button class="filter-button" data-id="North America">North America</button></li>
-						<li><button class="filter-button" data-id="South America">South America</button></li>
-					</ul>
-				</div>
-			</div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles-nav.css">
+    <link rel="stylesheet" href="css/styles-events.css">
+
+    <link rel="icon" type="image/png" sizes="50x50" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Marcellus" rel="stylesheet">
+</head>
+
+<body data-page="events">
+    <header id="siteHeader"></header>
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 8vw;">Halcyon</h1>
+            <h2 style="font-size: 4vw;">Tour Dates</h2>
         </div>
+        <div class="search-filter">
+            <form class="search-event-button" role="search">
+                <input type="search" placeholder="Search Events" class="event_search" aria-label="Search Events">
+                <button type="button" class="btn_search" aria-label="Search">
+                    <i aria-hidden="true">Search</i>
+                </button>
+            </form>
+            <div>
+                <ul class="filter-event-buttons" aria-label="Filter events by region">
+                    <li><button class="filter-button" data-id="All Locations">All Locations</button></li>
+                    <li><button class="filter-button" data-id="Asia">Asia</button></li>
+                    <li><button class="filter-button" data-id="Australia and Oceania">Australia & Oceania</button></li>
+                    <li><button class="filter-button" data-id="Europe">Europe</button></li>
+                    <li><button class="filter-button" data-id="UK and Ireland">UK & Ireland</button></li>
+                    <li><button class="filter-button" data-id="North America">North America</button></li>
+                    <li><button class="filter-button" data-id="South America">South America</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-		<!-- List of tour dates -->
-		<div class="display-events">
-			<table class="tour-dates-table" >
-				<tbody class="tour_dates_wrapper">
-					<!-- Tour dates added through Jscript.js file-->
-				</tbody>
-			</table>
-		</div>
-		<footer id="siteFooter"></footer>
-	</body>
+    <main class="main-content">
+        <div class="display-events">
+            <table class="tour-dates-table">
+                <tbody class="tour_dates_wrapper" aria-live="polite">
+                    <!-- Dynamic tour dates rendered via JS -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer id="siteFooter"></footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+</body>
+
 </html>

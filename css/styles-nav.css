@@ -1,16 +1,8 @@
-footer {
-    font-size: 14px;
-    text-align: center;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    font-family: var(--font-marcellus, 'Marcellus', serif);
-}
+/* Navigation & Shared Header Styling */
 
 .top-nav {
     overflow: hidden;
-    background-color: var(--nav-bg, #182825);
+    background-color: var(--nav-bg);
     position: sticky;
     top: 0;
     z-index: 999;
@@ -24,17 +16,17 @@ footer {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
-    font-family: var(--font-marcellus, 'Marcellus', serif);
+    font-family: var(--font-marcellus);
 }
 
 .top-nav a:hover {
-    background-color: var(--accent-gold, #D49A54);
-    color: black;
+    background-color: var(--accent-gold);
+    color: #000000;
 }
 
 .top-nav a.active {
-    background-color: var(--nav-active, #3A5C4A);
-    color: white;
+    background-color: var(--nav-active);
+    color: #ffffff;
 }
 
 .top-nav a.cart-icon {
@@ -47,8 +39,8 @@ footer {
     position: absolute;
     top: 4px;
     right: 4px;
-    background-color: var(--accent-gold, #D49A54);
-    color: #000;
+    background-color: var(--accent-gold);
+    color: #000000;
     font-weight: 700;
     min-width: 18px;
     height: 18px;
@@ -57,7 +49,7 @@ footer {
     border-radius: 999px;
     font-size: 11px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     pointer-events: none;
     display: inline-block;
 }
