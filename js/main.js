@@ -565,9 +565,7 @@ if (formSubmission) {
         const emailValid = isValidEmail(email.value);
         const nameValid = isFullNameValid(fullName.value);
 
-        console.log("Check 1");
         email.setCustomValidity(emailValid ? "" : "Please enter a valid email address.");
-        console.log("Check 2");
         fullName.setCustomValidity(nameValid ? "" : "Please enter your full name.");
         console.log("Email valid:", emailValid);
         console.log("Name valid:", nameValid);
@@ -576,11 +574,9 @@ if (formSubmission) {
         if (!emailValid) {
             event.preventDefault();
 			this.reportValidity();
-            console.log("Check 3");
         }
         if (!nameValid) {
             event.preventDefault();
-            console.log("Check 4");
 			this.reportValidity();
         }
     });
