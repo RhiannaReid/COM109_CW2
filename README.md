@@ -4,6 +4,10 @@
 
 This project is a website designed to showcase Halcyon, an indie rock/alternative band. The platform introduces the band, showcases upcoming gigs and event schedules, and features a merchandise shop with interactive cart management. Additionally, it provides a newsletter subscription form, event waitlist signup, and contact information.
 
+## How to open
+
+Download the zip file, extract it and then click on and open the index.html in Chrome. You shuold be taken to our home page and can navigate the system from there
+
 ## Group Members & Individual Roles
 
 | Name | Responsibilities & Features |
