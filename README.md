@@ -6,7 +6,7 @@ This project is a website designed to showcase Halcyon, an indie rock/alternativ
 
 ## How to open
 
-Download the zip file, extract it and then click on and open the index.html in Chrome. You shuold be taken to our home page and can navigate the system from there
+Download the zip file, extract it and then click on and open the index.html in Chrome. You should be taken to our home page and can navigate the system from there
 
 ## Group Members & Individual Roles
 
